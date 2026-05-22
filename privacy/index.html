@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy — Vedyn Apps</title>
+  <meta name="description" content="Vedyn Apps privacy policy. No servers, no accounts, no analytics. Your data stays on your device." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <style>
+    .privacy-page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 40px 100px;
+    }
+    .privacy-page h1 {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .privacy-page .updated {
+      font-family: var(--font-mono);
+      font-size: 0.63rem;
+      color: var(--muted-2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 52px;
+      display: block;
+    }
+    .privacy-lead {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 52px;
+    }
+    .privacy-lead p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.78;
+    }
+    .privacy-lead p + p {
+      margin-top: 14px;
+    }
+    .privacy-section {
+      margin-bottom: 48px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+    .privacy-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .privacy-section-label {
+      font-family: var(--font-mono);
+      font-size: 0.63rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .privacy-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: -0.3px;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    .privacy-section p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.82;
+      margin-bottom: 14px;
+    }
+    .privacy-section p:last-child {
+      margin-bottom: 0;
+    }
+    .privacy-fact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .privacy-fact-list li {
+      display: flex;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .privacy-fact-list li::before {
+      content: "→";
+      color: var(--accent);
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      margin-top: 1px;
+    }
+    .contact-block {
+      margin-top: 52px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+    .contact-block p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.72;
+    }
+    .contact-block a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .contact-block a:hover {
+      opacity: 0.8;
+    }
+    @media (max-width: 640px) {
+      .privacy-page { padding: 40px 20px 80px; }
+      .privacy-lead { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Vedyn Apps</span>
+  <div class="nav-links">
+    <a href="/">Apps</a>
+    <a href="mailto:arya_ishu@yahoo.com">Contact</a>
+  </div>
+</nav>
+
+<div class="privacy-page">
+
+  <a class="back-link" href="/">← All apps</a>
+
+  <h1>Privacy</h1>
+  <span class="updated">Last updated — May 2026</span>
+
+  <div class="privacy-lead">
+    <p>Your data stays on your device. We don't run servers that receive it — so there's nothing to breach, sell, or subpoena. All three apps work this way.</p>
+    <p>In practice: no accounts, no analytics, no crash reporters, no third-party SDKs phoning home. Purchases go through Apple directly. We never see your payment details.</p>
+  </div>
+
+  <div class="privacy-section" id="showpoint">
+    <span class="privacy-section-label">macOS</span>
+    <h2>ShowPoint</h2>
+    <p>ShowPoint watches your mouse position and clicks using macOS's standard event monitoring API — that's how it knows where to draw the halo and when to fire a pulse. That data is processed and discarded in real time. It never leaves your Mac.</p>
+    <p>Your license state (whether you've bought Lifetime Unlock or used the 10-minute trial) is stored in your Mac's Keychain, Apple's built-in encrypted credential store. That's local only. We have no servers to sync it to.</p>
+    <ul class="privacy-fact-list">
+      <li>No screen recording permission — ShowPoint is a transparent overlay, not a recorder</li>
+      <li>Mouse position and click events are read-only and discarded immediately after rendering</li>
+      <li>License state in Keychain — on your Mac, stays on your Mac</li>
+      <li>StoreKit purchases handled entirely by Apple</li>
+    </ul>
+  </div>
+
+  <div class="privacy-section" id="lumasip">
+    <span class="privacy-section-label">iOS</span>
+    <h2>LumaSip</h2>
+    <p>Your intake log lives in the app on your phone. If you turn on HealthKit sync, that goes to Apple Health on-device — we don't read from Apple Health ourselves, and nothing syncs to our servers. There aren't any.</p>
+    <ul class="privacy-fact-list">
+      <li>Intake data stored locally on device</li>
+      <li>HealthKit read/write is on-device only — we never access your Health data</li>
+      <li>No account required</li>
+    </ul>
+  </div>
+
+  <div class="privacy-section" id="periodtracker">
+    <span class="privacy-section-label">iOS — coming soon</span>
+    <h2>Period Tracker</h2>
+    <p>Cycle data stays in the app's local database. It doesn't leave your device. If you back up your phone to iCloud, that backup is between you and Apple — we're not involved.</p>
+    <ul class="privacy-fact-list">
+      <li>Cycle and symptom data stored locally — never transmitted</li>
+      <li>No account, no sync to our end</li>
+      <li>iCloud device backup is Apple's infrastructure, not ours</li>
+    </ul>
+  </div>
+
+  <div class="contact-block">
+    <p>Questions? Email <a href="mailto:arya_ishu@yahoo.com">arya_ishu@yahoo.com</a>. Replies come from a person, not a support bot.</p>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2026 Vedyn Apps. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="mailto:arya_ishu@yahoo.com">Contact</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/">All Apps</a>
+  </div>
+</footer>
+
+</body>
+</html>
