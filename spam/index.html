@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPAM — Security, Privacy and Austerity Measures</title>
+  <meta name="description" content="SPAM is Vedyn Apps' operating philosophy: Security, Privacy and Austerity Measures. The irony is intentional. The research behind it is not." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <style>
+
+    /* ── SPAM page ── */
+
+    .apsac-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 40px 140px;
+    }
+
+    /* Hero */
+    .apsac-hero {
+      padding: 72px 0 60px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 72px;
+    }
+
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 28px;
+    }
+
+    .apsac-wordmark {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 16vw, 10rem);
+      font-weight: 400;
+      letter-spacing: -3px;
+      line-height: 0.9;
+      color: var(--text);
+      margin-bottom: 22px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .apsac-wordmark::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    .apsac-expansion {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .apsac-expansion em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .apsac-expansion .paren {
+      color: var(--muted-2);
+    }
+
+    .apsac-lede {
+      font-size: 1.06rem;
+      color: var(--text);
+      line-height: 1.82;
+      max-width: 640px;
+    }
+
+    .apsac-lede p + p {
+      margin-top: 18px;
+    }
+
+    .apsac-lede a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Body copy */
+    .apsac-section {
+      margin-bottom: 64px;
+    }
+
+    .section-num {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted-2);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .apsac-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 400;
+      letter-spacing: -0.4px;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .apsac-section p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.9;
+      margin-bottom: 14px;
+    }
+
+    .apsac-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Wit callout — dry, aside-style */
+    .wit {
+      color: var(--muted-2);
+      font-style: italic;
+      font-size: 0.88rem;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 2px solid var(--accent);
+      padding: 10px 0 10px 26px;
+      margin: 36px 0;
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Citation cards */
+    .citations {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 28px 0 0;
+    }
+
+    .cite {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 20px;
+      transition: border-color 0.2s;
+    }
+
+    .cite:hover { border-color: var(--border-strong); }
+
+    .cite.blue  { border-left-color: #4a9ef0; }
+    .cite.green { border-left-color: #5ad282; }
+    .cite.red   { border-left-color: #e05252; }
+    .cite.grey  { border-left-color: var(--border-strong); }
+
+    .cite-source {
+      font-family: var(--font-mono);
+      font-size: 0.57rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted-2);
+      margin-bottom: 8px;
+    }
+
+    .cite-finding {
+      font-size: 0.87rem;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 9px;
+    }
+
+    .cite-angle {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .cite-link {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.57rem;
+      color: var(--muted-2);
+      margin-top: 10px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      letter-spacing: 0.04em;
+      transition: color 0.15s;
+    }
+    .cite-link:hover { color: var(--muted); }
+
+    /* Divider */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 64px 0;
+    }
+
+    /* Principles */
+    .principles {
+      list-style: none;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 24px;
+    }
+
+    .principles li {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .principles li:last-child { border-bottom: none; }
+
+    .p-num {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--accent);
+      font-weight: 500;
+      padding-top: 4px;
+    }
+
+    .p-body {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .p-body strong {
+      color: var(--text);
+      font-weight: 600;
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    /* Closing */
+    .apsac-close {
+      margin-top: 72px;
+      padding-top: 56px;
+      border-top: 1px solid var(--border);
+    }
+
+    .close-headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 28px;
+    }
+
+    .apsac-close p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.88;
+      max-width: 580px;
+      margin-bottom: 14px;
+    }
+
+    /* Sources */
+    .sources {
+      margin-top: 72px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .sources h3 {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted-2);
+      margin-bottom: 20px;
+    }
+
+    .sources ol {
+      list-style: none;
+      counter-reset: src;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .sources li {
+      counter-increment: src;
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 12px;
+      font-size: 0.79rem;
+      color: var(--muted-2);
+      line-height: 1.55;
+    }
+
+    .sources li::before {
+      content: counter(src);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--muted-2);
+      padding-top: 2px;
+      text-align: right;
+    }
+
+    .sources a {
+      color: var(--muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s;
+    }
+    .sources a:hover { color: var(--text); }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 640px) {
+      .apsac-wrap { padding: 36px 20px 96px; }
+      .apsac-hero { padding: 48px 0 44px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">Vedyn Apps</span>
+  <div class="nav-links">
+    <a href="/">Apps</a>
+    <a href="/#mission">Mission</a>
+    <a href="mailto:hello@vedynapps.com">Contact</a>
+  </div>
+</nav>
+
+<div class="apsac-wrap">
+
+  <a class="back-link" href="/">← Vedyn Apps</a>
+
+  <div class="apsac-hero">
+    <span class="kicker">Vedyn Apps — Position paper · May 2026 · yes, the acronym is intentional</span>
+    <div class="apsac-wordmark">SPAM</div>
+    <span class="apsac-expansion">
+      <em>S</em>ecurity, <em>P</em>rivacy and <em>A</em>usterity <em>M</em>easures
+    </span>
+    <div class="apsac-lede">
+      <p>SPAM is our operating philosophy. The irony is intentional — and actually kind of the point.</p>
+      <p>Most apps are full of it: surveillance pricing, dark patterns, behavioral analytics running while you try to use a to-do list, location brokers selling coordinates that turn out to reveal which clinic you visited. Our apps try to be the opposite. SPAM stands for Security, Privacy and Austerity Measures — where "austerity measures" is the economic policy term meaning a deliberate program of cutting structural excess. In software: no analytics, no account requirement, no growth funnel wrapped around the thing you actually came for.</p>
+      <p>This page is the research behind that position. It got long because the problem is genuinely not small.</p>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <div class="apsac-section reveal">
+    <span class="section-num">01 — The privacy problem</span>
+    <h2>Most people feel confused and out of control. That's by design.</h2>
+    <p>In 2023, Pew Research found that 81% of Americans are concerned about how companies use their data. 67% say they understand little or nothing about what actually happens to it. 73% feel they have little or no control over what gets collected.</p>
+    <p>This is not apathy. This is people responding rationally to systems that are deliberately hard to understand. Privacy harm usually starts before any breach — it starts the moment someone clicks through terms they couldn't parse, under time pressure, on a screen designed to make "agree" faster than "read."</p>
+    <p>When 70% of people who have heard of AI have little to no trust in companies to make responsible AI decisions with their data, and 80% expect their AI-analyzed personal details to be used in ways they would not be comfortable with, that's not paranoia either. That's pattern recognition.</p>
+    <div class="citations">
+      <div class="cite blue">
+        <div class="cite-source">Pew Research Center — Oct 18, 2023</div>
+        <div class="cite-finding">81% concerned about company data use. 67% understand little to nothing about what happens to their data. 73% feel little or no control.</div>
+        <div class="cite-angle">Most people aren't careless about privacy. They're tired of managing systems they cannot see.</div>
+        <a class="cite-link" href="https://www.pewresearch.org/internet/2023/10/18/views-of-data-privacy-risks-personal-data-and-digital-privacy-laws/" target="_blank" rel="noopener">pewresearch.org →</a>
+      </div>
+      <div class="cite blue">
+        <div class="cite-source">Pew Research Center — Oct 2023 (AI findings)</div>
+        <div class="cite-finding">70% of Americans who have heard of AI have little to no trust in companies to make responsible AI decisions. ~80% expect AI-analyzed personal details to be used in ways they did not intend or would not be comfortable with.</div>
+        <div class="cite-angle">AI makes data collection feel less like storage and more like judgment.</div>
+        <a class="cite-link" href="https://www.pewresearch.org/internet/2023/10/18/views-of-data-privacy-risks-personal-data-and-digital-privacy-laws/" target="_blank" rel="noopener">pewresearch.org →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="apsac-section reveal">
+    <span class="section-num">02 — The design problem</span>
+    <h2>A button can be honest or it can be a trap</h2>
+    <p>Dark patterns aren't just the passive-aggressive "no thanks, I don't want to save money" link. The FTC's 2022 report frames interface design as a consumer autonomy issue: design practices that can trick or trap users into unwanted purchases, subscriptions, or data sharing.</p>
+    <p>The Norwegian Consumer Council spent 2018 analyzing privacy settings on Facebook, Google, and Windows 10. They found privacy-intrusive options were the default. Privacy-protective options required extra steps. No one was surprised. But they documented it, and that's what makes it useful.</p>
+    <p>The California Privacy Protection Agency issued a dark patterns advisory in 2024 that makes the same point differently: privacy should not be hidden behind a stamina test. If opting out of tracking requires three more clicks than opting in, that's not a neutral design choice.</p>
+
+    <div class="pull-quote">
+      "Manipulation isn't always a pop-up. Sometimes it's the default, the wording, the extra step, or the missing exit."
+    </div>
+
+    <div class="citations">
+      <div class="cite">
+        <div class="cite-source">FTC — "Bringing Dark Patterns to Light", Sep 2022</div>
+        <div class="cite-finding">Dark patterns are sophisticated design practices that can trick or trap consumers into unwanted purchases, subscriptions, or data sharing.</div>
+        <a class="cite-link" href="https://www.ftc.gov/reports/bringing-dark-patterns-light" target="_blank" rel="noopener">ftc.gov →</a>
+      </div>
+      <div class="cite">
+        <div class="cite-source">Norwegian Consumer Council — "Deceived by Design", Jun 2018</div>
+        <div class="cite-finding">Analysis of Facebook, Google, and Windows 10 found privacy-intrusive defaults, misleading wording, and designs where privacy-protective choices required more effort than surveillance-heavy ones.</div>
+        <a class="cite-link" href="https://www.forbrukerradet.no/rapporter/deceived-by-design/" target="_blank" rel="noopener">forbrukerradet.no →</a>
+      </div>
+      <div class="cite">
+        <div class="cite-source">California Privacy Protection Agency — Dark Patterns Advisory, Sep 2024</div>
+        <div class="cite-finding">CPPA guidance on dark patterns that undermine user choice in privacy contexts, reinforcing that CCPA/CPRA requires meaningful consent — not consent obtained through deceptive interface design.</div>
+        <a class="cite-link" href="https://cppa.ca.gov/announcements/2024/20240904.html" target="_blank" rel="noopener">cppa.ca.gov →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="apsac-section reveal">
+    <span class="section-num">03 — The pricing problem</span>
+    <h2>When the app knows more about you than you know about the price</h2>
+    <p>In January 2025, the FTC released findings from its surveillance pricing study. Intermediaries can use location, demographics, browsing patterns, shopping history, mouse movements, and abandoned-cart behavior to set individualized prices and product visibility. The same item becomes a different offer once the system has decided who you are.</p>
+    <p>This is not a fringe practice. Mouse movements, specifically, ended up in the FTC's findings. If you've ever wondered whether anyone is watching how you hover and hesitate — someone probably is, and they may have already adjusted the price.</p>
+    <div class="citations">
+      <div class="cite">
+        <div class="cite-source">FTC Surveillance Pricing Study — Jan 2025</div>
+        <div class="cite-finding">Location, demographics, browsing patterns, shopping history, mouse movements, and abandoned-cart behavior may be used to tailor individualized prices, discounts, and product visibility.</div>
+        <div class="cite-angle">The same product can become a different offer when the system thinks it knows who you are.</div>
+        <a class="cite-link" href="https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer" target="_blank" rel="noopener">ftc.gov →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="apsac-section reveal">
+    <span class="section-num">04 — The location problem</span>
+    <h2>A trail of ordinary coordinates can become something else entirely</h2>
+    <p>Location data feels abstract. A latitude and longitude at 2pm on a Tuesday seems harmless. The FTC's action against Mobilewalla in December 2024 alleged the company sold audience segments built from location signals that revealed visits to health clinics, places of worship, and political gatherings. These are not edge cases. These are the places people go when they're most vulnerable, most private, or most carefully deciding who gets to know about it.</p>
+    <p>FTC v. Kochava, still ongoing, concerns location data from hundreds of millions of mobile devices — the kind of dataset where even without names, individual movement patterns become individually identifiable pretty quickly.</p>
+    <p>The data problem isn't any single point. It's what happens when a data broker connects coordinates, timestamps, and behavioral signals across apps they've never used and people they've never met.</p>
+    <div class="citations">
+      <div class="cite red">
+        <div class="cite-source">FTC v. Mobilewalla — Dec 2024</div>
+        <div class="cite-finding">FTC alleged Mobilewalla sold sensitive location data and audience segments built on characteristics including medical conditions and religious beliefs, exposing consumers to potential discrimination, physical harm, and emotional distress.</div>
+        <div class="cite-angle">A location trail can reveal more than where someone went. It can reveal what they fear, need, believe, or cannot safely disclose.</div>
+        <a class="cite-link" href="https://www.ftc.gov/news-events/news/press-releases/2024/12/ftc-takes-action-against-mobilewalla-collecting-selling-sensitive-location-data" target="_blank" rel="noopener">ftc.gov →</a>
+      </div>
+      <div class="cite red">
+        <div class="cite-source">FTC v. Kochava Inc. — ongoing (last updated May 2026)</div>
+        <div class="cite-finding">Location data from hundreds of millions of mobile devices could be used to trace individual movements. Proposed order would prohibit sale, sharing, or disclosure of sensitive location data without consent.</div>
+        <div class="cite-angle">The problem is not what one app knows. It's what brokers can connect across apps, places, and time.</div>
+        <a class="cite-link" href="https://www.ftc.gov/legal-library/browse/cases-proceedings/ftc-v-kochava-inc" target="_blank" rel="noopener">ftc.gov →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="apsac-section reveal">
+    <span class="section-num">05 — The AI problem</span>
+    <h2>Inference is cheaper now, which changes what "harmless data" means</h2>
+    <p>AI doesn't just store data. It generates predictions from it. Clicks become propensities. Locations become beliefs. Pause durations become financial stress. This isn't science fiction — it's the architecture of recommendation, scoring, and targeted pricing systems already in production.</p>
+    <p>NIST's AI Risk Management Framework treats trustworthy AI as requiring safety, security, accountability, privacy, and transparency simultaneously, not sequentially. OECD's AI incidents work argues we still lack consistent reporting frameworks for when these systems cause harm — so we're mostly learning from the cases dramatic enough to make the news.</p>
+    <p>The Rite Aid case is a useful example. The FTC found the company deployed AI-based facial recognition without adequate safeguards. It produced false accusations, harassment, and disproportionate impact on people of color. When an automated system is wrong, it's the person in front of it who pays first, and the system that issues a correction eventually, if at all.</p>
+    <div class="citations">
+      <div class="cite blue">
+        <div class="cite-source">NIST AI Risk Management Framework — Jan 2023 (Gen AI profile Jul 2024)</div>
+        <div class="cite-finding">Trustworthy AI requires simultaneous attention to accuracy, safety, security, explainability, privacy, fairness, accountability, and transparency — treating these as system properties, not compliance checkboxes.</div>
+        <a class="cite-link" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">nist.gov →</a>
+      </div>
+      <div class="cite blue">
+        <div class="cite-source">OECD — "Towards a common reporting framework for AI incidents", Feb 2025</div>
+        <div class="cite-finding">AI incidents are global, cross-sector, and difficult to compare without structured reporting. Consistent public documentation is needed to identify high-risk systems and evaluate human impact.</div>
+        <div class="cite-angle">Responsible software starts by making harms visible enough to learn from.</div>
+        <a class="cite-link" href="https://www.oecd.org/en/publications/towards-a-common-reporting-framework-for-ai-incidents_f326d4ac-en.html" target="_blank" rel="noopener">oecd.org →</a>
+      </div>
+      <div class="cite red">
+        <div class="cite-source">FTC v. Rite Aid — Dec 2023</div>
+        <div class="cite-finding">FTC found Rite Aid deployed AI facial recognition without reasonable safeguards, resulting in false accusations, harassment, and disproportionate impact on people of color. Rite Aid was banned from using such technology for five years.</div>
+        <div class="cite-angle">When automated systems are wrong, the person pays the social cost first.</div>
+        <a class="cite-link" href="https://www.ftc.gov/news-events/news/press-releases/2023/12/rite-aid-banned-using-ai-facial-recognition-after-ftc-says-retailer-deployed-technology-without" target="_blank" rel="noopener">ftc.gov →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 -->
+  <div class="apsac-section reveal">
+    <span class="section-num">06 — The trust problem</span>
+    <h2>A privacy claim has to match the business model</h2>
+    <p>In February 2024, the FTC banned Avast from selling its users' browsing data to advertisers. Avast is antivirus software. The product's entire pitch is that it protects your computer. The company was selling your browsing history through a subsidiary. This is roughly equivalent to your therapist publishing a newsletter.</p>
+    <p>The Avast case isn't an isolated failure of one company's ethics. It's a demonstration of the structural incentive: if you have the data, there's a market for it. The privacy policy says one thing. The subsidiary says another. The user is somewhere in the middle, reading neither.</p>
+    <p>Every SDK, analytics package, and third-party vendor in an app is a trust decision the user never got to make. That's not abstract risk. Verizon's 2025 breach report found third-party involvement in breaches doubled to 30% of cases. Each connection is another exposure.</p>
+    <div class="citations">
+      <div class="cite">
+        <div class="cite-source">FTC v. Avast (via TechCrunch) — Feb 22, 2024</div>
+        <div class="cite-finding">FTC banned Avast from selling browsing data to advertisers after alleging the antivirus company sold user browsing information through a subsidiary, despite privacy-protection claims. Avast was fined $16.5 million.</div>
+        <div class="cite-angle">Trust is not a tagline. A privacy claim has to match the business model.</div>
+        <a class="cite-link" href="https://techcrunch.com/2024/02/22/ftc-bans-avast-selling-customers-sensitive-browsing-data/" target="_blank" rel="noopener">techcrunch.com →</a>
+      </div>
+      <div class="cite green">
+        <div class="cite-source">Verizon 2025 Data Breach Investigations Report — Apr 2025</div>
+        <div class="cite-finding">Third-party involvement in breaches doubled to 30%. Vulnerability exploitation rose 34%.</div>
+        <div class="cite-angle">Every extra vendor, SDK, and data pipeline is a trust decision the user never got to make.</div>
+        <a class="cite-link" href="https://www.verizon.com/about/news/2025-data-breach-investigations-report" target="_blank" rel="noopener">verizon.com →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 -->
+  <div class="apsac-section reveal">
+    <span class="section-num">07 — The breach problem</span>
+    <h2>Data that is never collected cannot leak, be resold, or be repurposed</h2>
+    <p>The Identity Theft Resource Center's 2024 report tracks nearly 12 billion victim notices across its history. IBM's 2025 report found that 13% of studied organizations reported breaches of AI models or applications, and 97% of those lacked proper AI access controls. 60% of AI-related security incidents led to compromised data.</p>
+    <p>Data minimization is a security strategy, not just a privacy philosophy. If an app never collected the data in the first place, the breach surface is smaller. There's no vault to crack because there's no vault. That's the logic behind a local-first design constraint being treated as a product requirement rather than a marketing claim.</p>
+    <div class="citations">
+      <div class="cite green">
+        <div class="cite-source">IBM Cost of a Data Breach Report 2025 — Jul 30, 2025</div>
+        <div class="cite-finding">13% of studied organizations reported breaches of AI models or applications. 97% of those lacked proper AI access controls. 60% of AI-related incidents led to compromised data.</div>
+        <div class="cite-angle">AI doesn't remove the need for security basics. It raises the cost of skipping them.</div>
+        <a class="cite-link" href="https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications%2C-97-of-which-reported-lacking-proper-ai-access-controls" target="_blank" rel="noopener">ibm.com →</a>
+      </div>
+      <div class="cite green">
+        <div class="cite-source">Identity Theft Resource Center — 2024 Annual Data Breach Report, Jan 2025</div>
+        <div class="cite-finding">Nearly 12 billion victim notices across ITRC's tracked history. 2024 saw continued growth in the volume of compromised personal data from breaches.</div>
+        <a class="cite-link" href="https://www.idtheftcenter.org/publication/2024-data-breach-report/" target="_blank" rel="noopener">idtheftcenter.org →</a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- Principles -->
+  <div class="apsac-section reveal">
+    <span class="section-num">What this means in practice</span>
+    <h2>SPAM is the policy. The measures are literal.</h2>
+    <p>None of the above is abstract. These are the product requirements that come out of it — checked before features ship, not applied as copy afterward.</p>
+    <ul class="principles">
+      <li>
+        <span class="p-num">01</span>
+        <div class="p-body">
+          <strong>Do less, clearly.</strong>
+          Each app should stay in its lane. ShowPoint makes the cursor visible for recordings and meetings. It should not drift into analytics, behavior profiling, or "insights" territory. Narrowness is a feature. Feature creep is usually how a privacy problem starts.
+        </div>
+      </li>
+      <li>
+        <span class="p-num">02</span>
+        <div class="p-body">
+          <strong>Collect the minimum.</strong>
+          The strongest privacy claim is not "we protect your data." It's "we don't collect data we don't need." No app-owned server. No analytics. No account requirement. Purchases and restore flows go through Apple's App Store.
+        </div>
+      </li>
+      <li>
+        <span class="p-num">03</span>
+        <div class="p-body">
+          <strong>Make observation legible.</strong>
+          If an app reads mouse position or click events, the privacy policy says that, specifically. Not vague comfort language. If the wording feels reassuring but imprecise, it's wrong. Precise is more trustworthy than warm.
+        </div>
+      </li>
+      <li>
+        <span class="p-num">04</span>
+        <div class="p-body">
+          <strong>Avoid manipulative monetization.</strong>
+          The product can make money without the interface becoming a pressure campaign. Pricing, trial limits, and upgrade prompts should be clear, symmetrical, and easy to dismiss without consequences. "No thanks" should be a full sentence.
+        </div>
+      </li>
+      <li>
+        <span class="p-num">05</span>
+        <div class="p-body">
+          <strong>Local-first as a constraint, not a tagline.</strong>
+          No cloud sync, no behavioral telemetry, no app-owned server. This is a design requirement checked before any feature ships, not a marketing claim applied afterward.
+        </div>
+      </li>
+      <li>
+        <span class="p-num">06</span>
+        <div class="p-body">
+          <strong>Design for agency.</strong>
+          Users should know what is happening, be able to turn it off, and never feel tricked into a privacy trade. If a UI element requires more effort to protect privacy than to give it up, it gets redesigned.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Closing -->
+  <div class="apsac-close reveal">
+    <div class="close-headline">
+      The cursor should be visible.<br>
+      The person should not be profiled.
+    </div>
+    <p>A cursor tool does not need to know who you are. It doesn't need a cloud profile, an analytics trail, a recorder, or a growth funnel. It needs to make the cursor visible and leave the rest of your life alone.</p>
+    <p>That's the deal. SPAM is the policy. The apps are the proof. The name is the joke.</p>
+  </div>
+
+  <!-- Sources -->
+  <div class="sources reveal">
+    <h3>Sources</h3>
+    <ol>
+      <li><span>Pew Research Center, "How Americans View Data Privacy", Oct 18, 2023 — <a href="https://www.pewresearch.org/internet/2023/10/18/views-of-data-privacy-risks-personal-data-and-digital-privacy-laws/" target="_blank" rel="noopener">pewresearch.org</a></span></li>
+      <li><span>Federal Trade Commission, "Bringing Dark Patterns to Light", Sep 2022 — <a href="https://www.ftc.gov/reports/bringing-dark-patterns-light" target="_blank" rel="noopener">ftc.gov</a></span></li>
+      <li><span>Norwegian Consumer Council, "Deceived by Design", Jun 27, 2018 — <a href="https://www.forbrukerradet.no/rapporter/deceived-by-design/" target="_blank" rel="noopener">forbrukerradet.no</a></span></li>
+      <li><span>California Privacy Protection Agency, dark patterns advisory, Sep 4, 2024 — <a href="https://cppa.ca.gov/announcements/2024/20240904.html" target="_blank" rel="noopener">cppa.ca.gov</a></span></li>
+      <li><span>Federal Trade Commission, Surveillance Pricing Study release, Jan 2025 — <a href="https://www.ftc.gov/news-events/news/press-releases/2025/01/ftc-surveillance-pricing-study-indicates-wide-range-personal-data-used-set-individualized-consumer" target="_blank" rel="noopener">ftc.gov</a></span></li>
+      <li><span>FTC action against Mobilewalla, Dec 2024 — <a href="https://www.ftc.gov/news-events/news/press-releases/2024/12/ftc-takes-action-against-mobilewalla-collecting-selling-sensitive-location-data" target="_blank" rel="noopener">ftc.gov</a></span></li>
+      <li><span>FTC v. Kochava Inc. (ongoing) — <a href="https://www.ftc.gov/legal-library/browse/cases-proceedings/ftc-v-kochava-inc" target="_blank" rel="noopener">ftc.gov</a></span></li>
+      <li><span>NIST AI Risk Management Framework, released Jan 26, 2023; Gen AI profile Jul 26, 2024 — <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">nist.gov</a></span></li>
+      <li><span>OECD, "Towards a common reporting framework for AI incidents", Feb 28, 2025 — <a href="https://www.oecd.org/en/publications/towards-a-common-reporting-framework-for-ai-incidents_f326d4ac-en.html" target="_blank" rel="noopener">oecd.org</a></span></li>
+      <li><span>FTC action against Rite Aid, Dec 2023 — <a href="https://www.ftc.gov/news-events/news/press-releases/2023/12/rite-aid-banned-using-ai-facial-recognition-after-ftc-says-retailer-deployed-technology-without" target="_blank" rel="noopener">ftc.gov</a></span></li>
+      <li><span>TechCrunch, "FTC bans Avast from selling its users' browsing data to advertisers", Feb 22, 2024 — <a href="https://techcrunch.com/2024/02/22/ftc-bans-avast-selling-customers-sensitive-browsing-data/" target="_blank" rel="noopener">techcrunch.com</a></span></li>
+      <li><span>IBM Cost of a Data Breach Report 2025, Jul 30, 2025 — <a href="https://newsroom.ibm.com/2025-07-30-ibm-report-13-of-organizations-reported-breaches-of-ai-models-or-applications%2C-97-of-which-reported-lacking-proper-ai-access-controls" target="_blank" rel="noopener">ibm.com</a></span></li>
+      <li><span>Identity Theft Resource Center, 2024 Annual Data Breach Report, Jan 28, 2025 — <a href="https://www.idtheftcenter.org/publication/2024-data-breach-report/" target="_blank" rel="noopener">idtheftcenter.org</a></span></li>
+      <li><span>Verizon 2025 Data Breach Investigations Report, Apr 23, 2025 — <a href="https://www.verizon.com/about/news/2025-data-breach-investigations-report" target="_blank" rel="noopener">verizon.com →</a></span></li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2026 Vedyn Apps. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="mailto:hello@vedynapps.com">Contact</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/">All Apps</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
