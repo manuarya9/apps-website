@@ -83,7 +83,7 @@ nav {
   position: relative;
 }
 .hero::before {
-  content: '── 3 apps  ·  no accounts  ·  one-time pricing';
+  content: '── no accounts  ·  one-time pricing  ·  local-first';
   display: block;
   font-family: var(--font-mono);
   font-size: 0.67rem;
@@ -240,6 +240,11 @@ nav {
   background: rgba(240, 100, 160, 0.08);
   color: #f064a0;
   border-color: rgba(240, 100, 160, 0.2);
+}
+.tag.purple {
+  background: rgba(160, 110, 240, 0.08);
+  color: #a06ef0;
+  border-color: rgba(160, 110, 240, 0.2);
 }
 
 /* ── App page ── */
