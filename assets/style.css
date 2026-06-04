@@ -64,7 +64,9 @@ nav {
   font-size: 0.88rem;
   letter-spacing: 0.04em;
   color: var(--text);
+  transition: opacity 0.18s;
 }
+.nav-brand:hover { opacity: 0.72; }
 .nav-links { display: flex; gap: 32px; }
 .nav-links a {
   color: var(--muted);
