@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vedyn Apps — Logo</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png" />
+  <link rel="apple-touch-icon" href="brand/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d0d10; --surface: #17171b; --surface-2: #1e1e23;
+      --border: #27272d; --text: #f0eee8; --muted: #888893; --muted-2: #4e4e59;
+      --accent: #e8a84a; --ink: #1a1206; --cream: #f0eee8;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); padding: 0 0 100px; }
+
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+
+    /* Hero */
+    .hero {
+      border-bottom: 1px solid var(--border);
+      padding: 80px 0 64px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 400; letter-spacing: -0.5px; line-height: 1.05; margin-bottom: 18px; }
+    .hero p { color: var(--muted); font-size: 0.95rem; line-height: 1.85; max-width: 440px; }
+    .hero-mark {
+      aspect-ratio: 1;
+      background: radial-gradient(ellipse 70% 70% at 50% 42%, rgba(232,168,74,0.08), transparent 70%), var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-mark svg { width: 54%; filter: drop-shadow(0 0 36px rgba(232,168,74,0.28)); }
+
+    h2.section {
+      font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted-2);
+      margin: 64px 0 22px; display: flex; align-items: center; gap: 14px;
+    }
+    h2.section::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    .row { display: grid; gap: 16px; }
+    .cols-2 { grid-template-columns: 1fr 1fr; }
+    .cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+    .tile .cap { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.07em; color: var(--muted-2); margin-top: 16px; text-transform: uppercase; }
+    .tile .cap b { color: var(--text); font-weight: 500; }
+
+    .stage { border-radius: 8px; display: flex; align-items: center; justify-content: center; min-height: 150px; }
+    .stage.dark { background: var(--bg); }
+    .stage.light { background: var(--cream); }
+    .stage.amber { background: var(--accent); }
+
+    /* Lockups */
+    .lockup-h { display: flex; align-items: center; gap: 16px; }
+    .lockup-h svg { width: 46px; height: 46px; }
+    .lockup-h .wm { display: flex; flex-direction: column; line-height: 1; }
+    .lockup-h .wm .name { font-family: var(--font-display); font-size: 1.7rem; }
+    .lockup-h .wm .sub { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-top: 7px; }
+    .lockup-v { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .lockup-v svg { width: 58px; height: 58px; }
+    .lockup-v .name { font-family: var(--font-display); font-size: 1.5rem; }
+
+    /* app icon + favicon previews */
+    .appicons { display: flex; align-items: flex-end; gap: 22px; flex-wrap: wrap; }
+    .appicons figure { display: flex; flex-direction: column; align-items: center; gap: 9px; }
+    .appicons img { display: block; box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+    .appicons figcaption { font-family: var(--font-mono); font-size: 0.55rem; color: var(--muted-2); letter-spacing: 0.06em; }
+
+    .browser {
+      background: var(--surface-2); border: 1px solid var(--border); border-radius: 9px 9px 0 0;
+      padding: 10px 14px; display: flex; align-items: center; gap: 10px; max-width: 360px;
+    }
+    .browser .tab { background: var(--bg); border-radius: 6px; padding: 7px 12px 7px 9px; display: flex; align-items: center; gap: 8px; font-size: 0.74rem; color: var(--muted); }
+    .browser .tab img { width: 15px; height: 15px; }
+
+    /* clear space / construction */
+    .construct { background: var(--bg); border-radius: 8px; padding: 30px; display: flex; justify-content: center; }
+    .construct svg { width: 220px; }
+
+    /* color chips */
+    .chips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .chip { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .chip .sw { height: 64px; }
+    .chip .meta { padding: 11px 13px; }
+    .chip .meta .n { font-size: 0.78rem; font-weight: 500; }
+    .chip .meta .h { font-family: var(--font-mono); font-size: 0.62rem; color: var(--muted); margin-top: 3px; }
+
+    /* do/dont */
+    .guide { display: flex; gap: 12px; align-items: flex-start; }
+    .guide .mark-ok, .guide .mark-no { font-family: var(--font-mono); font-size: 0.62rem; padding: 2px 7px; border-radius: 4px; flex-shrink: 0; letter-spacing: 0.06em; }
+    .mark-ok { background: rgba(90,210,130,0.1); color: #5ad282; border: 1px solid rgba(90,210,130,0.25); }
+    .mark-no { background: rgba(240,100,120,0.1); color: #f06478; border: 1px solid rgba(240,100,120,0.25); }
+    .guide p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    .backup-note { display: flex; gap: 22px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 26px 30px; flex-wrap: wrap; }
+    .backup-note svg { width: 64px; height: 64px; flex-shrink: 0; }
+    .backup-note h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.1rem; margin-bottom: 6px; }
+    .backup-note p { color: var(--muted); font-size: 0.82rem; line-height: 1.7; flex: 1; min-width: 260px; }
+
+    @media (max-width: 720px) {
+      .wrap { padding: 0 18px; }
+      .hero { grid-template-columns: 1fr; }
+      .cols-2, .cols-3, .chips { grid-template-columns: 1fr; }
+      .chips { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── SVG symbols ── -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="mark" viewBox="0 0 100 100">
+      <path d="M50,53 L13,86 Q50,94 87,86 Z" fill="currentColor"/>
+      <path d="M50,53 L16,16" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <path d="M50,53 L84,16" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="50" cy="40" r="8" fill="currentColor"/>
+    </symbol>
+    <symbol id="watcher" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="43" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <path d="M21,31 L50,77 L79,31" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse cx="34" cy="41" rx="5.2" ry="3.3" fill="currentColor"/>
+      <ellipse cx="66" cy="41" rx="5.2" ry="3.3" fill="currentColor"/>
+    </symbol>
+    <!-- construction overlay -->
+    <symbol id="mark-construct" viewBox="0 0 100 100">
+      <rect x="6" y="6" width="88" height="88" fill="none" stroke="#e8a84a" stroke-width="0.5" stroke-dasharray="2 2" opacity="0.35"/>
+      <line x1="50" y1="0" x2="50" y2="100" stroke="#e8a84a" stroke-width="0.5" opacity="0.2"/>
+      <line x1="0" y1="53" x2="100" y2="53" stroke="#e8a84a" stroke-width="0.5" opacity="0.2"/>
+      <path d="M50,53 L13,86 Q50,94 87,86 Z" fill="#e8a84a"/>
+      <path d="M50,53 L16,16" fill="none" stroke="#e8a84a" stroke-width="7" stroke-linecap="round"/>
+      <path d="M50,53 L84,16" fill="none" stroke="#e8a84a" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="50" cy="40" r="8" fill="#e8a84a"/>
+      <circle cx="50" cy="53" r="2" fill="#0d0d10"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Vedyn Apps · Final Logo</p>
+      <h1>Grounded Salute</h1>
+      <p>A figure seated in lotus, arms raised into the V — stillness and victory in one gesture. Calm, human, unmistakably Vedyn. This is the primary mark across product, web, and store.</p>
+    </div>
+    <div class="hero-mark">
+      <svg viewBox="0 0 100 100" style="color:#e8a84a"><use href="#mark"/></svg>
+    </div>
+  </header>
+
+  <!-- LOCKUPS -->
+  <h2 class="section">Lockups</h2>
+  <div class="row cols-2">
+    <div class="tile">
+      <div class="stage dark">
+        <div class="lockup-h">
+          <svg viewBox="0 0 100 100" style="color:#e8a84a"><use href="#mark"/></svg>
+          <div class="wm"><span class="name">Vedyn</span><span class="sub">Apps</span></div>
+        </div>
+      </div>
+      <p class="cap"><b>Horizontal lockup</b> — nav, headers, email signatures</p>
+    </div>
+    <div class="tile">
+      <div class="stage dark">
+        <div class="lockup-v">
+          <svg viewBox="0 0 100 100" style="color:#e8a84a"><use href="#mark"/></svg>
+          <span class="name">Vedyn Apps</span>
+        </div>
+      </div>
+      <p class="cap"><b>Stacked lockup</b> — splash, about, profile avatars</p>
+    </div>
+  </div>
+
+  <!-- APP ICON + FAVICON -->
+  <h2 class="section">App icon &amp; favicon</h2>
+  <div class="row cols-2">
+    <div class="tile">
+      <div class="stage" style="background:var(--bg);">
+        <div class="appicons">
+          <figure><img src="brand/app-icon-512.png" width="118" height="118" style="border-radius:26px" alt="app icon" /><figcaption>iOS / macOS · 1024</figcaption></figure>
+          <figure><img src="brand/apple-touch-icon.png" width="74" height="74" style="border-radius:17px" alt="touch icon" /><figcaption>touch · 180</figcaption></figure>
+          <figure><img src="brand/favicon-48.png" width="40" height="40" alt="favicon" /><figcaption>favicon · 48</figcaption></figure>
+        </div>
+      </div>
+      <p class="cap"><b>Squircle app icon</b> — amber mark on warm-dark with a soft glow</p>
+    </div>
+    <div class="tile">
+      <div class="stage" style="background:var(--bg); flex-direction:column; gap:18px;">
+        <div class="browser">
+          <div class="tab"><img src="brand/favicon-32.png" alt="" />vedynapps.com</div>
+        </div>
+        <div class="appicons">
+          <figure><img src="brand/favicon-32.png" width="32" height="32" alt="32" /><figcaption>32px</figcaption></figure>
+          <figure><img src="brand/favicon-16.png" width="16" height="16" alt="16" /><figcaption>16px</figcaption></figure>
+        </div>
+      </div>
+      <p class="cap"><b>Browser tab</b> — silhouette stays legible down to 16px</p>
+    </div>
+  </div>
+
+  <!-- COLORWAYS -->
+  <h2 class="section">Color use</h2>
+  <div class="row cols-3">
+    <div class="tile">
+      <div class="stage dark"><svg viewBox="0 0 100 100" width="92" height="92" style="color:#e8a84a"><use href="#mark"/></svg></div>
+      <p class="cap"><b>Amber on dark</b> — default</p>
+    </div>
+    <div class="tile">
+      <div class="stage light"><svg viewBox="0 0 100 100" width="92" height="92" style="color:#1a1206"><use href="#mark"/></svg></div>
+      <p class="cap"><b>Ink on cream</b> — print, light UI</p>
+    </div>
+    <div class="tile">
+      <div class="stage amber"><svg viewBox="0 0 100 100" width="92" height="92" style="color:#0d0d10"><use href="#mark"/></svg></div>
+      <p class="cap"><b>Dark on amber</b> — reversed / accent</p>
+    </div>
+  </div>
+
+  <!-- CONSTRUCTION + CLEAR SPACE -->
+  <h2 class="section">Construction &amp; clear space</h2>
+  <div class="row cols-2">
+    <div class="tile">
+      <div class="construct"><svg viewBox="0 0 100 100"><use href="#mark-construct"/></svg></div>
+      <p class="cap"><b>One nodal point</b> — arms (V) rise and legs spread from a single seat at the figure's center</p>
+    </div>
+    <div class="tile">
+      <div class="stage dark" style="position:relative; padding:26px;">
+        <div style="border:1px dashed var(--border); padding:24px; border-radius:6px;">
+          <svg viewBox="0 0 100 100" width="92" height="92" style="color:#e8a84a"><use href="#mark"/></svg>
+        </div>
+      </div>
+      <p class="cap"><b>Clear space</b> — keep min. padding equal to the head's diameter on all sides</p>
+    </div>
+  </div>
+
+  <!-- PALETTE -->
+  <h2 class="section">Palette</h2>
+  <div class="chips">
+    <div class="chip"><div class="sw" style="background:#e8a84a"></div><div class="meta"><div class="n">Signal Amber</div><div class="h">#E8A84A</div></div></div>
+    <div class="chip"><div class="sw" style="background:#0d0d10"></div><div class="meta"><div class="n">Void</div><div class="h">#0D0D10</div></div></div>
+    <div class="chip"><div class="sw" style="background:#1a1206"></div><div class="meta"><div class="n">Ink</div><div class="h">#1A1206</div></div></div>
+    <div class="chip"><div class="sw" style="background:#f0eee8"></div><div class="meta"><div class="n">Cream</div><div class="h">#F0EEE8</div></div></div>
+  </div>
+
+  <!-- DO / DONT -->
+  <h2 class="section">Usage</h2>
+  <div class="row cols-2">
+    <div class="tile" style="display:flex; flex-direction:column; gap:14px;">
+      <div class="guide"><span class="mark-ok">DO</span><p>Use the single-color mark on solid brand backgrounds. Let the amber carry the warmth.</p></div>
+      <div class="guide"><span class="mark-ok">DO</span><p>Keep the figure's proportions locked — scale uniformly, never stretch one axis.</p></div>
+      <div class="guide"><span class="mark-ok">DO</span><p>Give it room. Honour the clear space so the V stays open and readable.</p></div>
+    </div>
+    <div class="tile" style="display:flex; flex-direction:column; gap:14px;">
+      <div class="guide"><span class="mark-no">NO</span><p>Don't add gradients, bevels, or drop shadows to the flat mark (the glow lives only in the app icon).</p></div>
+      <div class="guide"><span class="mark-no">NO</span><p>Don't recolor outside the palette or place amber-on-amber with low contrast.</p></div>
+      <div class="guide"><span class="mark-no">NO</span><p>Don't rotate the figure or detach the arms from the seated base.</p></div>
+    </div>
+  </div>
+
+  <!-- BACKUP -->
+  <h2 class="section">Backup mark</h2>
+  <div class="backup-note">
+    <svg viewBox="0 0 100 100" style="color:#e8a84a"><use href="#watcher"/></svg>
+    <div>
+      <h3>The Watcher</h3>
+      <p>Held in reserve for moments that call for the mission's harder edge — security pages, the privacy manifesto, sticker drops. A vigilant face that looks back, never collects. Files are included alongside the primary mark.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

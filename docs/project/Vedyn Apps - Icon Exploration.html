@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vedyn Apps — Icon Exploration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #0d0d10;
+      --surface:      #17171b;
+      --surface-2:    #1e1e23;
+      --border:       #27272d;
+      --text:         #f0eee8;
+      --muted:        #888893;
+      --muted-2:      #4e4e59;
+      --accent:       #e8a84a;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      padding: 56px 40px 100px;
+      min-height: 100vh;
+    }
+
+    header {
+      max-width: 960px;
+      margin: 0 auto 52px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.82;
+      max-width: 580px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 32px 28px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: rgba(232,168,74,0.3); }
+
+    .icon-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      height: 232px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .icon-stage::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(232,168,74,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .icon-stage svg.main-icon {
+      width: 148px;
+      height: 148px;
+      filter: drop-shadow(0 0 28px rgba(232,168,74,0.22));
+    }
+
+    .card h2 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .card > p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    /* ── Size variants ── */
+    .variants {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .v-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .v-label {
+      font-family: var(--font-mono);
+      font-size: 0.52rem;
+      color: var(--muted-2);
+      letter-spacing: 0.07em;
+    }
+    .swatch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .swatch.dark   { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; }
+    .swatch.appico { background: var(--bg); border-radius: 22%; }
+    .swatch.light  { background: #f3f1ec; border: 1px solid #ddd; border-radius: 6px; }
+
+    /* ── Lockup (wordmark) ── */
+    .lockup {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 32px 16px 60px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── SVG Symbol Library ─── -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+
+    <!-- A: Vedyn Yogi — seated figure, arms raised in V arcs -->
+    <symbol id="sym-yogi" viewBox="0 0 100 100">
+      <!-- Left arm: curved arc rising up-left -->
+      <path d="M50,41 Q31,23 8,7" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+      <!-- Right arm: curved arc rising up-right -->
+      <path d="M50,41 Q69,23 92,7" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" fill="none"/>
+      <!-- Head — sits just below arm convergence point -->
+      <circle cx="50" cy="52" r="9" fill="currentColor"/>
+      <!-- Torso -->
+      <line x1="50" y1="61" x2="50" y2="75" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"/>
+      <!-- Lotus base: two gentle humps suggesting crossed legs -->
+      <path d="M30,82 Q40,76 50,78 Q60,76 70,82" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+      <!-- Feet / outer knee circles -->
+      <circle cx="28" cy="85" r="4" fill="currentColor"/>
+      <circle cx="72" cy="85" r="4" fill="currentColor"/>
+    </symbol>
+
+    <!-- B: The Sign — peace/victory fingers, V in negative space -->
+    <symbol id="sym-fingers" viewBox="0 0 100 100">
+      <!-- Palm base (behind fingers) -->
+      <ellipse cx="50" cy="80" rx="28" ry="11" fill="currentColor"/>
+      <!-- Left finger: rotated from bottom pivot -->
+      <rect x="25" y="13" width="16" height="60" rx="8" fill="currentColor" transform="rotate(-11 33 75)"/>
+      <!-- Right finger: mirrored rotation -->
+      <rect x="59" y="13" width="16" height="60" rx="8" fill="currentColor" transform="rotate(11 67 75)"/>
+    </symbol>
+
+    <!-- C: The Mark — calligraphic serif V letterform -->
+    <symbol id="sym-v" viewBox="0 0 100 100">
+      <!-- Left arm: triangle wide at top, tapering to vertex -->
+      <path d="M5,15 L27,15 L50,90 Z" fill="currentColor"/>
+      <!-- Right arm: mirror -->
+      <path d="M95,15 L73,15 L50,90 Z" fill="currentColor"/>
+      <!-- Horizontal serif caps -->
+      <rect x="0" y="9" width="32" height="9" rx="4.5" fill="currentColor"/>
+      <rect x="68" y="9" width="32" height="9" rx="4.5" fill="currentColor"/>
+    </symbol>
+
+    <!-- D: Vigilant — circle face, V + watching eyes -->
+    <symbol id="sym-vigilant" viewBox="0 0 100 100">
+      <!-- Face circle frame -->
+      <circle cx="50" cy="50" r="44" stroke="currentColor" stroke-width="2.5" fill="none"/>
+      <!-- V formation — tips near circle edge, vertex near base -->
+      <path d="M12,28 L50,82 L88,28" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Eyes — watching from inside the V's upper opening -->
+      <circle cx="31" cy="38" r="4" fill="currentColor"/>
+      <circle cx="69" cy="38" r="4" fill="currentColor"/>
+    </symbol>
+
+  </defs>
+</svg>
+
+<!-- ─── Header ─── -->
+<header>
+  <p class="eyebrow">Vedyn Apps · Logo Exploration</p>
+  <h1>Four directions for the V mark</h1>
+  <p>Each concept finds the V through a different human lens — yogic posture, the universal peace gesture, pure calligraphic letterform, and a vigilant watching circle. Privacy, presence, resistance.</p>
+</header>
+
+<!-- ─── Concept Grid ─── -->
+<div class="grid">
+
+  <!-- ── A: Vedyn Yogi ── -->
+  <article class="card">
+    <div class="icon-stage">
+      <svg class="main-icon" viewBox="0 0 100 100" style="color:#e8a84a">
+        <use href="#sym-yogi"/>
+      </svg>
+    </div>
+    <h2>Vedyn Yogi</h2>
+    <p>A seated figure in lotus, arms tracing the V in two rising arcs. Head anchors the letterform. Yogic stillness and victory are the same gesture — hands open, energy rising.</p>
+    <div class="variants">
+      <div class="v-item">
+        <div class="swatch dark" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="48" height="48" style="color:#e8a84a"><use href="#sym-yogi"/></svg>
+        </div>
+        <span class="v-label">72 · dark</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch appico" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="44" height="44" style="color:#e8a84a"><use href="#sym-yogi"/></svg>
+        </div>
+        <span class="v-label">app icon</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch dark" style="width:32px;height:32px;border-radius:4px;">
+          <svg viewBox="0 0 100 100" width="20" height="20" style="color:#e8a84a"><use href="#sym-yogi"/></svg>
+        </div>
+        <span class="v-label">32px</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch light" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="48" height="48" style="color:#1e1408"><use href="#sym-yogi"/></svg>
+        </div>
+        <span class="v-label">light</span>
+      </div>
+    </div>
+    <div class="lockup">
+      <svg viewBox="0 0 100 100" width="15" height="15" style="color:#e8a84a"><use href="#sym-yogi"/></svg>
+      Vedyn Apps
+    </div>
+  </article>
+
+  <!-- ── B: The Sign ── -->
+  <article class="card">
+    <div class="icon-stage">
+      <svg class="main-icon" viewBox="0 0 100 100" style="color:#e8a84a">
+        <use href="#sym-fingers"/>
+      </svg>
+    </div>
+    <h2>The Sign</h2>
+    <p>Peace. Victory. The V lives in the negative space between two upright fingers. A universal gesture — wordless, cross-cultural, quietly subversive. The hand raised to say: we're still here.</p>
+    <div class="variants">
+      <div class="v-item">
+        <div class="swatch dark" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="48" height="48" style="color:#e8a84a"><use href="#sym-fingers"/></svg>
+        </div>
+        <span class="v-label">72 · dark</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch appico" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="44" height="44" style="color:#e8a84a"><use href="#sym-fingers"/></svg>
+        </div>
+        <span class="v-label">app icon</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch dark" style="width:32px;height:32px;border-radius:4px;">
+          <svg viewBox="0 0 100 100" width="20" height="20" style="color:#e8a84a"><use href="#sym-fingers"/></svg>
+        </div>
+        <span class="v-label">32px</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch light" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="48" height="48" style="color:#1e1408"><use href="#sym-fingers"/></svg>
+        </div>
+        <span class="v-label">light</span>
+      </div>
+    </div>
+    <div class="lockup">
+      <svg viewBox="0 0 100 100" width="15" height="15" style="color:#e8a84a"><use href="#sym-fingers"/></svg>
+      Vedyn Apps
+    </div>
+  </article>
+
+  <!-- ── C: The Mark ── -->
+  <article class="card">
+    <div class="icon-stage">
+      <svg class="main-icon" viewBox="0 0 100 100" style="color:#e8a84a">
+        <use href="#sym-v"/>
+      </svg>
+    </div>
+    <h2>The Mark</h2>
+    <p>A pure letterform. Humanist proportions with calligraphic serif caps — the pen-nib width that says it was drawn by a hand, then refined. V for Vedyn. Unambiguous at any scale.</p>
+    <div class="variants">
+      <div class="v-item">
+        <div class="swatch dark" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="48" height="48" style="color:#e8a84a"><use href="#sym-v"/></svg>
+        </div>
+        <span class="v-label">72 · dark</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch appico" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="44" height="44" style="color:#e8a84a"><use href="#sym-v"/></svg>
+        </div>
+        <span class="v-label">app icon</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch dark" style="width:32px;height:32px;border-radius:4px;">
+          <svg viewBox="0 0 100 100" width="20" height="20" style="color:#e8a84a"><use href="#sym-v"/></svg>
+        </div>
+        <span class="v-label">32px</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch light" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="48" height="48" style="color:#1e1408"><use href="#sym-v"/></svg>
+        </div>
+        <span class="v-label">light</span>
+      </div>
+    </div>
+    <div class="lockup">
+      <svg viewBox="0 0 100 100" width="15" height="15" style="color:#e8a84a"><use href="#sym-v"/></svg>
+      Vedyn Apps
+    </div>
+  </article>
+
+  <!-- ── D: Vigilant ── -->
+  <article class="card">
+    <div class="icon-stage">
+      <svg class="main-icon" viewBox="0 0 100 100" style="color:#e8a84a">
+        <use href="#sym-vigilant"/>
+      </svg>
+    </div>
+    <h2>Vigilant</h2>
+    <p>Two eyes watch from inside the V. A circle — ancient frame for a face, a world, a lens. The figure of resistance looking back: aware, unwatched, untracked. The eye that doesn't collect.</p>
+    <div class="variants">
+      <div class="v-item">
+        <div class="swatch dark" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="48" height="48" style="color:#e8a84a"><use href="#sym-vigilant"/></svg>
+        </div>
+        <span class="v-label">72 · dark</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch appico" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="44" height="44" style="color:#e8a84a"><use href="#sym-vigilant"/></svg>
+        </div>
+        <span class="v-label">app icon</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch dark" style="width:32px;height:32px;border-radius:4px;">
+          <svg viewBox="0 0 100 100" width="20" height="20" style="color:#e8a84a"><use href="#sym-vigilant"/></svg>
+        </div>
+        <span class="v-label">32px</span>
+      </div>
+      <div class="v-item">
+        <div class="swatch light" style="width:72px;height:72px;">
+          <svg viewBox="0 0 100 100" width="48" height="48" style="color:#1e1408"><use href="#sym-vigilant"/></svg>
+        </div>
+        <span class="v-label">light</span>
+      </div>
+    </div>
+    <div class="lockup">
+      <svg viewBox="0 0 100 100" width="15" height="15" style="color:#e8a84a"><use href="#sym-vigilant"/></svg>
+      Vedyn Apps
+    </div>
+  </article>
+
+</div>
+
+</body>
+</html>

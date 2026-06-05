@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512" role="img" aria-label="Vedyn Apps — Watcher">
+  <circle cx="50" cy="50" r="43" fill="none" stroke="#e8a84a" stroke-width="2.5"></circle>
+  <path d="M21,31 L50,77 L79,31" fill="none" stroke="#e8a84a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+  <ellipse cx="34" cy="41" rx="5.2" ry="3.3" fill="#e8a84a"></ellipse>
+  <ellipse cx="66" cy="41" rx="5.2" ry="3.3" fill="#e8a84a"></ellipse>
+</svg>

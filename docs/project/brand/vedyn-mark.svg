@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512" role="img" aria-label="Vedyn Apps">
+  <path d="M50,53 L13,86 Q50,94 87,86 Z" fill="#e8a84a"></path>
+  <path d="M50,53 L16,16" fill="none" stroke="#e8a84a" stroke-width="7" stroke-linecap="round"></path>
+  <path d="M50,53 L84,16" fill="none" stroke="#e8a84a" stroke-width="7" stroke-linecap="round"></path>
+  <circle cx="50" cy="40" r="8" fill="#e8a84a"></circle>
+</svg>

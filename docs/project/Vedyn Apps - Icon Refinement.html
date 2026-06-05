@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vedyn Apps — Icon Refinement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #0d0d10;
+      --surface:      #17171b;
+      --border:       #27272d;
+      --text:         #f0eee8;
+      --muted:        #888893;
+      --muted-2:      #4e4e59;
+      --accent:       #e8a84a;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      padding: 56px 40px 100px;
+      min-height: 100vh;
+    }
+
+    header {
+      max-width: 960px;
+      margin: 0 auto 44px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.82;
+      max-width: 600px;
+    }
+
+    .section-label {
+      max-width: 960px;
+      margin: 48px auto 18px;
+      font-family: var(--font-mono);
+      font-size: 0.63rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 34px 30px 26px;
+      transition: border-color 0.2s;
+    }
+    .card.pick { border-color: rgba(232,168,74,0.42); }
+
+    .icon-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      height: 220px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .icon-stage::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(232,168,74,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .icon-stage svg.main-icon {
+      width: 144px;
+      height: 144px;
+      filter: drop-shadow(0 0 28px rgba(232,168,74,0.22));
+    }
+
+    .card h2 {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 7px;
+    }
+    .card .tag {
+      font-family: var(--font-mono);
+      font-size: 0.56rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .card > p {
+      color: var(--muted);
+      font-size: 0.81rem;
+      line-height: 1.78;
+      margin-bottom: 22px;
+    }
+
+    .variants {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .v-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .v-label {
+      font-family: var(--font-mono);
+      font-size: 0.52rem;
+      color: var(--muted-2);
+      letter-spacing: 0.07em;
+    }
+    .swatch { display: flex; align-items: center; justify-content: center; }
+    .swatch.dark   { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; }
+    .swatch.appico { background: var(--bg); border-radius: 22%; }
+    .swatch.light  { background: #f3f1ec; border: 1px solid #ddd; border-radius: 6px; }
+
+    .lockup {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text);
+      letter-spacing: 0.05em;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* VW comparison strip */
+    .compare {
+      max-width: 960px;
+      margin: 40px auto 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px 30px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .compare h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+    .compare p { color: var(--muted); font-size: 0.8rem; line-height: 1.7; }
+    .compare .pts { flex: 1; min-width: 280px; }
+    .diff-list { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
+    .diff-list li {
+      font-size: 0.78rem; color: var(--muted);
+      display: flex; gap: 10px; line-height: 1.5;
+    }
+    .diff-list li::before { content: '→'; color: var(--accent); font-family: var(--font-mono); font-size: 0.7rem; }
+
+    @media (max-width: 700px) {
+      body { padding: 32px 16px 60px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── SVG Symbol Library ─── -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+
+    <!-- YOGI A — straight raised arms (V) from a grounded lotus base -->
+    <symbol id="sym-yogi-a" viewBox="0 0 100 100">
+      <!-- Lotus base: wide grounded triangle = crossed legs -->
+      <path d="M50,53 L13,86 Q50,94 87,86 Z" fill="currentColor"/>
+      <!-- Arms raised in V from the seat -->
+      <path d="M50,53 L16,16" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <path d="M50,53 L84,16" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <!-- Head, framed in the V -->
+      <circle cx="50" cy="40" r="8" fill="currentColor"/>
+    </symbol>
+
+    <!-- YOGI B — curved (energy) raised arms from lotus base -->
+    <symbol id="sym-yogi-b" viewBox="0 0 100 100">
+      <path d="M50,53 L13,86 Q50,94 87,86 Z" fill="currentColor"/>
+      <path d="M50,54 Q30,40 16,15" stroke="currentColor" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <path d="M50,54 Q70,40 84,15" stroke="currentColor" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <circle cx="50" cy="40" r="8" fill="currentColor"/>
+    </symbol>
+
+    <!-- VIGILANT A — refined: clean circle, inset V, almond eyes (clearly a face) -->
+    <symbol id="sym-vig-a" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="43" stroke="currentColor" stroke-width="2.5" fill="none"/>
+      <path d="M21,31 L50,77 L79,31" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <ellipse cx="34" cy="41" rx="5.2" ry="3.3" fill="currentColor"/>
+      <ellipse cx="66" cy="41" rx="5.2" ry="3.3" fill="currentColor"/>
+    </symbol>
+
+    <!-- VIGILANT B — open ring (aperture / unenclosed) + V + eyes -->
+    <symbol id="sym-vig-b" viewBox="0 0 100 100">
+      <!-- Broken ring: gap at the base -->
+      <path d="M38,89 A44,44 0 1 1 62,89" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M17,31 L50,79 L83,31" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="33" cy="40" r="4" fill="currentColor"/>
+      <circle cx="67" cy="40" r="4" fill="currentColor"/>
+    </symbol>
+
+    <!-- Reference: VW-style mark for honest comparison (NOT a deliverable) -->
+    <symbol id="sym-vw-ref" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="43" stroke="currentColor" stroke-width="3" fill="none"/>
+      <path d="M22,24 L34,52 L42,32 L50,52 L58,32 L66,52 L78,24" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M34,52 L42,76 L50,52" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M50,52 L58,76 L66,52" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </symbol>
+
+  </defs>
+</svg>
+
+<!-- ─── Header ─── -->
+<header>
+  <p class="eyebrow">Vedyn Apps · Icon Refinement</p>
+  <h1>Yogi, fixed — and Vigilant, differentiated</h1>
+  <p>The Yogi now reads as a seated meditation figure: arms rise into the V from a grounded, crossed-leg base. Vigilant is reworked into a clear watching face, with notes on how it departs from the VW badge.</p>
+</header>
+
+<!-- ─── YOGI ─── -->
+<div class="section-label">Direction 1 — Vedyn Yogi (revised posture)</div>
+<div class="grid">
+
+  <article class="card">
+    <div class="icon-stage">
+      <svg class="main-icon" viewBox="0 0 100 100" style="color:#e8a84a"><use href="#sym-yogi-a"/></svg>
+    </div>
+    <span class="tag">Yogi · straight arms</span>
+    <h2>Grounded Salute</h2>
+    <p>Crossed legs form a wide, grounded base — the unmistakable silhouette of lotus. From the seat, the arms rise into a clean V; the head sits framed within it. Stillness and victory, one gesture.</p>
+    <div class="variants">
+      <div class="v-item"><div class="swatch dark" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="46" height="46" style="color:#e8a84a"><use href="#sym-yogi-a"/></svg></div><span class="v-label">68 · dark</span></div>
+      <div class="v-item"><div class="swatch appico" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="42" height="42" style="color:#e8a84a"><use href="#sym-yogi-a"/></svg></div><span class="v-label">app icon</span></div>
+      <div class="v-item"><div class="swatch dark" style="width:32px;height:32px;border-radius:4px;"><svg viewBox="0 0 100 100" width="21" height="21" style="color:#e8a84a"><use href="#sym-yogi-a"/></svg></div><span class="v-label">32px</span></div>
+      <div class="v-item"><div class="swatch light" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="46" height="46" style="color:#1e1408"><use href="#sym-yogi-a"/></svg></div><span class="v-label">light</span></div>
+    </div>
+    <div class="lockup"><svg viewBox="0 0 100 100" width="15" height="15" style="color:#e8a84a"><use href="#sym-yogi-a"/></svg>Vedyn Apps</div>
+  </article>
+
+  <article class="card">
+    <div class="icon-stage">
+      <svg class="main-icon" viewBox="0 0 100 100" style="color:#e8a84a"><use href="#sym-yogi-b"/></svg>
+    </div>
+    <span class="tag">Yogi · curved arms</span>
+    <h2>Rising Breath</h2>
+    <p>Same seated base, but the arms sweep up in soft arcs — energy rising, breath drawn upward. Reads warmer and more organic than the straight version while keeping the V unmistakable.</p>
+    <div class="variants">
+      <div class="v-item"><div class="swatch dark" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="46" height="46" style="color:#e8a84a"><use href="#sym-yogi-b"/></svg></div><span class="v-label">68 · dark</span></div>
+      <div class="v-item"><div class="swatch appico" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="42" height="42" style="color:#e8a84a"><use href="#sym-yogi-b"/></svg></div><span class="v-label">app icon</span></div>
+      <div class="v-item"><div class="swatch dark" style="width:32px;height:32px;border-radius:4px;"><svg viewBox="0 0 100 100" width="21" height="21" style="color:#e8a84a"><use href="#sym-yogi-b"/></svg></div><span class="v-label">32px</span></div>
+      <div class="v-item"><div class="swatch light" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="46" height="46" style="color:#1e1408"><use href="#sym-yogi-b"/></svg></div><span class="v-label">light</span></div>
+    </div>
+    <div class="lockup"><svg viewBox="0 0 100 100" width="15" height="15" style="color:#e8a84a"><use href="#sym-yogi-b"/></svg>Vedyn Apps</div>
+  </article>
+
+</div>
+
+<!-- ─── VIGILANT ─── -->
+<div class="section-label">Direction 2 — Vigilant (differentiated)</div>
+<div class="grid">
+
+  <article class="card pick">
+    <div class="icon-stage">
+      <svg class="main-icon" viewBox="0 0 100 100" style="color:#e8a84a"><use href="#sym-vig-a"/></svg>
+    </div>
+    <span class="tag">Vigilant · closed lens</span>
+    <h2>The Watcher</h2>
+    <p>Almond eyes — not dots — make it read instantly as a face, not a monogram. The V is pulled inward to float as a feature rather than touch the ring. A presence that looks back.</p>
+    <div class="variants">
+      <div class="v-item"><div class="swatch dark" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="46" height="46" style="color:#e8a84a"><use href="#sym-vig-a"/></svg></div><span class="v-label">68 · dark</span></div>
+      <div class="v-item"><div class="swatch appico" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="42" height="42" style="color:#e8a84a"><use href="#sym-vig-a"/></svg></div><span class="v-label">app icon</span></div>
+      <div class="v-item"><div class="swatch dark" style="width:32px;height:32px;border-radius:4px;"><svg viewBox="0 0 100 100" width="21" height="21" style="color:#e8a84a"><use href="#sym-vig-a"/></svg></div><span class="v-label">32px</span></div>
+      <div class="v-item"><div class="swatch light" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="46" height="46" style="color:#1e1408"><use href="#sym-vig-a"/></svg></div><span class="v-label">light</span></div>
+    </div>
+    <div class="lockup"><svg viewBox="0 0 100 100" width="15" height="15" style="color:#e8a84a"><use href="#sym-vig-a"/></svg>Vedyn Apps</div>
+  </article>
+
+  <article class="card">
+    <div class="icon-stage">
+      <svg class="main-icon" viewBox="0 0 100 100" style="color:#e8a84a"><use href="#sym-vig-b"/></svg>
+    </div>
+    <span class="tag">Vigilant · open aperture</span>
+    <h2>Unenclosed</h2>
+    <p>The ring is broken at the base — an aperture, not a badge. It reads as a lens or shield that was never sealed shut, and structurally cannot be mistaken for VW's closed circle. The loop of surveillance, left open.</p>
+    <div class="variants">
+      <div class="v-item"><div class="swatch dark" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="46" height="46" style="color:#e8a84a"><use href="#sym-vig-b"/></svg></div><span class="v-label">68 · dark</span></div>
+      <div class="v-item"><div class="swatch appico" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="42" height="42" style="color:#e8a84a"><use href="#sym-vig-b"/></svg></div><span class="v-label">app icon</span></div>
+      <div class="v-item"><div class="swatch dark" style="width:32px;height:32px;border-radius:4px;"><svg viewBox="0 0 100 100" width="21" height="21" style="color:#e8a84a"><use href="#sym-vig-b"/></svg></div><span class="v-label">32px</span></div>
+      <div class="v-item"><div class="swatch light" style="width:68px;height:68px;"><svg viewBox="0 0 100 100" width="46" height="46" style="color:#1e1408"><use href="#sym-vig-b"/></svg></div><span class="v-label">light</span></div>
+    </div>
+    <div class="lockup"><svg viewBox="0 0 100 100" width="15" height="15" style="color:#e8a84a"><use href="#sym-vig-b"/></svg>Vedyn Apps</div>
+  </article>
+
+</div>
+
+<!-- ─── VW honest comparison ─── -->
+<div class="compare">
+  <div class="v-item" style="gap:10px;">
+    <div style="display:flex;gap:16px;align-items:center;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:7px;">
+        <svg viewBox="0 0 100 100" width="58" height="58" style="color:#5a5a64"><use href="#sym-vw-ref"/></svg>
+        <span class="v-label">VW badge</span>
+      </div>
+      <span style="color:var(--muted-2);font-family:var(--font-mono);">vs</span>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:7px;">
+        <svg viewBox="0 0 100 100" width="58" height="58" style="color:#e8a84a"><use href="#sym-vig-a"/></svg>
+        <span class="v-label">Vigilant</span>
+      </div>
+    </div>
+  </div>
+  <div class="pts">
+    <h3>Why it's not the VW badge</h3>
+    <ul class="diff-list">
+      <li>VW stacks two letters (V over W) — Vigilant is a single V read as a face, with eyes.</li>
+      <li>VW's strokes fill the circle edge-to-edge — Vigilant's V floats inset, leaving an open field.</li>
+      <li>The eyes are the dominant cue: the brain reads "watcher," not "monogram."</li>
+      <li>The open-aperture variant breaks the ring entirely — a structural departure VW can't share.</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Vedyn Apps — Watcher app icon">
+  <defs>
+    <radialGradient id="watcherGlow" cx="50%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#241a0e"></stop>
+      <stop offset="100%" stop-color="#0d0d10"></stop>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="229" fill="url(#watcherGlow)"></rect>
+  <g transform="translate(182,182) scale(6.6)">
+    <circle cx="50" cy="50" r="43" fill="none" stroke="#e8a84a" stroke-width="2.7"></circle>
+    <path d="M21,31 L50,77 L79,31" fill="none" stroke="#e8a84a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+    <ellipse cx="34" cy="41" rx="5.2" ry="3.3" fill="#e8a84a"></ellipse>
+    <ellipse cx="66" cy="41" rx="5.2" ry="3.3" fill="#e8a84a"></ellipse>
+  </g>
+</svg>
