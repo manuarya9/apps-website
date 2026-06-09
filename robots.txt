@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /docs/
+Disallow: /periodtracker/
+
+Sitemap: https://vedynapps.com/sitemap.xml
