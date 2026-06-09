@@ -418,6 +418,11 @@ nav {
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.72;
+  animation: faqReveal 0.2s ease both;
+}
+@keyframes faqReveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Footer ── */
