@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloak — Clean Your Mac Desktop Before Screen Sharing</title>
-  <meta name="description" content="One keystroke hides desktop icons, silences notifications, and clears the wallpaper. It also triggers automatically when Zoom, Teams, or Meet opens. Free basics, $6.99 Lifetime Unlock." />
+  <title>Cloak — Screen Share Privacy for Mac</title>
+  <meta name="description" content="One keystroke hides desktop icons, silences notifications, clears the wallpaper, and covers app windows. Go Live shows what's leaking before you share. Free basics, $6.99 Lifetime Unlock." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" />
@@ -19,13 +19,73 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Vedyn Apps" />
   <meta property="og:url" content="https://vedynapps.com/cloak/" />
-  <meta property="og:title" content="Cloak — Hide Your Desktop Before Screen Sharing on Mac" />
-  <meta property="og:description" content="One keystroke hides desktop icons, silences notifications, and clears the wallpaper — or automatically when Zoom, Teams, or Meet opens. Free basics, $6.99 Lifetime Unlock." />
+  <meta property="og:title" content="Cloak — Screen Share Privacy for Mac" />
+  <meta property="og:description" content="One keystroke hides desktop icons, silences notifications, clears the wallpaper, and covers app windows. Go Live shows what's leaking before you share. Free basics, $6.99 Lifetime Unlock." />
   <meta property="og:image" content="https://vedynapps.com/brand/app-icon-1024.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Cloak — Hide Your Desktop Before Screen Sharing on Mac" />
-  <meta name="twitter:description" content="One keystroke hides desktop icons, silences notifications, and clears the wallpaper — or automatically when Zoom, Teams, or Meet opens. Free basics, $6.99 Lifetime Unlock." />
+  <meta name="twitter:title" content="Cloak — Screen Share Privacy for Mac" />
+  <meta name="twitter:description" content="One keystroke hides desktop icons, silences notifications, clears the wallpaper, and covers app windows. Go Live shows what's leaking before you share. Free basics, $6.99 Lifetime Unlock." />
   <meta name="twitter:image" content="https://vedynapps.com/brand/app-icon-1024.png" />
+  <style>
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+    }
+    .about-app-name {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .about-version-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .about-version {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: var(--muted-2);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .about-version::before {
+      content: "v";
+      color: var(--accent);
+    }
+    .about-platform {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--muted-2);
+      letter-spacing: 0.06em;
+    }
+    .about-body {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.72;
+      margin-bottom: 18px;
+    }
+    .about-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .about-links a {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      transition: opacity 0.15s;
+    }
+    .about-links a:hover { opacity: 0.72; }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,9 +93,10 @@
     "name": "Cloak",
     "url": "https://vedynapps.com/cloak/",
     "image": "https://vedynapps.com/assets/icons/cloak.png",
-    "description": "Cloak hides desktop icons, silences notifications, and clears the wallpaper on macOS in one keystroke — or automatically when a conference app like Zoom, Teams, or Meet comes to the foreground.",
-    "operatingSystem": "macOS",
+    "description": "Cloak hides desktop icons, silences notifications, clears the wallpaper, and covers app windows on macOS in one keystroke. Go Live shows exactly what your audience would see before you share. Auto-triggers fire when a conference app opens.",
+    "operatingSystem": "macOS 14+",
     "applicationCategory": "UtilitiesApplication",
+    "softwareVersion": "1.0",
     "offers": [
       { "@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free tier" },
       { "@type": "Offer", "price": "6.99", "priceCurrency": "USD", "name": "Lifetime Unlock" }
@@ -51,27 +112,37 @@
       {
         "@type": "Question",
         "name": "How do I hide my desktop icons on a Mac before screen sharing?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Press one hotkey. Cloak hides every desktop icon instantly and brings them all back when you press it again — no Terminal commands, no dragging files into folders." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Press one hotkey. Cloak hides every desktop icon instantly and brings them all back when you press it again. No Terminal commands, no dragging files into folders." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Go Live panel in Cloak?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Go Live is a pre-share checklist. Open it before you share and it shows you every running app and your notification status, so you can see what your audience would actually see. Anything worth hiding shows up there first." }
       },
       {
         "@type": "Question",
         "name": "Can Cloak silence notifications during a screen share?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cloak turns on Do Not Disturb through a bundled macOS Shortcut you install once, so Slack messages and calendar alerts never pop up mid-presentation." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cloak silences notifications through a bundled macOS Shortcut you install once during setup, so Slack messages and calendar alerts don't pop up mid-presentation." }
       },
       {
         "@type": "Question",
         "name": "Does Cloak activate automatically when I join a Zoom or Teams call?",
-        "acceptedAnswer": { "@type": "Answer", "text": "With the Lifetime Unlock, Cloak watches for Zoom, Teams, Meet, Loom, or OBS coming to the foreground and activates your chosen profile automatically. Everything restores when the app closes." }
+        "acceptedAnswer": { "@type": "Answer", "text": "With the Lifetime Unlock, Cloak watches for Zoom, Teams, Meet, Loom, or OBS coming to the foreground and activates automatically. Everything restores when the app closes." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Tab Guard in Cloak?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tab Guard is a Pro feature. Before you share, pick which Safari tabs you want visible. Cloak moves them to a clean window and hides everything else. Your other open tabs don't show up." }
       },
       {
         "@type": "Question",
         "name": "What happens if Cloak crashes while my desktop is hidden?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Cloak snapshots what it hid the moment it activates. On the next launch it reconciles and restores everything, so a force quit never leaves you with a hidden desktop." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Cloak writes down what it hid when it activates. Force-quit mid-session and everything restores on the next launch. You won't be left with a permanently hidden desktop." }
       },
       {
         "@type": "Question",
         "name": "Is Cloak a subscription?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. The basics are free forever, and the Lifetime Unlock is a one-time $6.99 purchase. No accounts, no renewals." }
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The basics are free, and the Lifetime Unlock is a one-time $6.99 purchase. No accounts, no renewals." }
       }
     ]
   }
@@ -108,9 +179,9 @@
     </div>
     <div class="app-page-meta">
       <h1>Cloak</h1>
-      <p>Share your screen without the pre-share scramble. One keystroke hides desktop icons, silences notifications, and clears the wallpaper. Pro adds window cover and auto-triggers so it's already done before you hit "Share Screen."</p>
+      <p>Before you hit Share Screen, there's usually something open you didn't mean to show. One keystroke handles it. Icons hide, notifications go quiet, the wallpaper clears, app windows disappear. With Pro, it fires automatically when a conference app opens.</p>
       <div class="tag-row" style="margin-bottom: 20px;">
-        <span class="tag">macOS</span>
+        <span class="tag">macOS 14+</span>
         <span class="tag green">Free tier</span>
         <span class="tag green">$6.99 lifetime</span>
         <span class="tag purple">Menu Bar</span>
@@ -123,12 +194,14 @@
   <div class="section">
     <h2>What it does</h2>
     <ul class="feature-list">
-      <li>One-keystroke mode — hides desktop icons, silences notifications, and clears the wallpaper. Nothing leaks.</li>
-      <li>Auto-trigger (Pro) — fires when Zoom, Teams, Meet, Loom, or OBS comes to the foreground; restores when it closes</li>
-      <li>Window cover (Pro) — hides your own app windows behind a clean surface. Restores completely when you're done.</li>
-      <li>Per-app profiles (Pro) — Meeting and Recording modes with separate behaviors for each</li>
-      <li>Crash-safe restore — snapshots what was hidden on activation. A force quit won't leave you stuck.</li>
-      <li>Menu-bar only — no Dock icon, no window in the way</li>
+      <li>One-keystroke toggle — hides desktop icons, silences notifications, and clears the wallpaper. Press again to restore everything.</li>
+      <li>Go Live panel — open it before any share. Lists every running app and your notification status so you can see what your audience would actually see.</li>
+      <li>Auto-trigger (Pro) — when Zoom, Teams, Meet, Loom, or OBS comes to the foreground, Cloak fires automatically. Everything restores when the app closes.</li>
+      <li>Window hide (Pro) — covers your own app windows during a session. They come back exactly as you left them.</li>
+      <li>Tab Guard (Pro) — pick which Safari tabs stay on screen. The rest move to a hidden window. Your other open tabs don't show up.</li>
+      <li>Per-app profiles (Pro) — Meeting and Recording modes, each with separate behavior. Switch between them in Go Live.</li>
+      <li>Crash-safe restore — Cloak writes down what it hid when it activates. Force-quit mid-session and everything restores on the next launch.</li>
+      <li>Menu-bar only — no Dock icon, no window in the way.</li>
     </ul>
   </div>
 
@@ -136,12 +209,13 @@
     <h2>Pricing</h2>
     <div class="pricing-card">
       <div class="price">Free <span>/ useful basics</span></div>
-      <p>Manual hotkey, desktop icon hiding, notification silencing via a bundled Shortcut, and launch at login. Useful without paying anything.</p>
+      <p>Manual hotkey, desktop icon hiding, notification silence via a bundled Shortcut, and launch at login. All free.</p>
       <div style="margin-bottom: 20px;">
-        <strong>Unlock everything — $6.99 one-time</strong>
+        <strong style="color: var(--text); font-size: 0.95rem;">Everything included, $6.99 once</strong>
         <ul style="margin-top: 10px; padding-left: 20px; color: var(--muted); font-size: 0.9rem; display: flex; flex-direction: column; gap: 6px;">
-          <li>Window cover (hide your own app windows)</li>
+          <li>Window hide (your own app windows)</li>
           <li>Wallpaper blur or replace</li>
+          <li>Tab Guard for Safari</li>
           <li>Auto-triggers for Zoom, Teams, Meet, Loom, and OBS</li>
           <li>Per-app profiles: Meeting and Recording modes</li>
           <li>Pin list and menu-bar status indicator</li>
@@ -153,21 +227,40 @@
   </div>
 
   <div class="section">
-    <h2>Zero permissions in the free tier</h2>
+    <h2>Permissions</h2>
     <ul class="feature-list">
-      <li>No screen-recording permission — Cloak hides icons and wallpaper through system APIs, not a screen capture</li>
-      <li>No Accessibility access required — window cover works on Cloak's own windows without cross-app reach</li>
-      <li>Notifications silenced via a bundled macOS Shortcut the user installs once, not a private API</li>
+      <li>No screen-recording permission needed. Icons and wallpaper hide through system APIs.</li>
+      <li>No Accessibility permission needed. Window cover only touches Cloak's own windows.</li>
+      <li>Notification silence runs through a bundled macOS Shortcut you install once during setup.</li>
+      <li>NSWorkspace tells Cloak which app is frontmost. That's the whole auto-trigger mechanism. Screen content is never read.</li>
+      <li>Safari Apple Events (Pro): Cloak moves Safari windows for Tab Guard. Tab content is never read or modified.</li>
     </ul>
   </div>
 
   <div class="section">
     <h2>Works with any recorder</h2>
     <ul class="feature-list">
-      <li>Zoom, Teams, Meet, Loom, OBS, QuickTime — anything you share or record from</li>
-      <li>Auto-trigger detects when a conference app comes to the foreground, not true screen-share detection (no such API exists)</li>
-      <li>Menu-bar only — no Dock icon, stays invisible when you're not presenting</li>
+      <li>Zoom, Teams, Meet, Loom, OBS, QuickTime — anything you share or record from.</li>
+      <li>Auto-trigger watches which app is frontmost, not the screen itself. There's no system API for true screen-share detection.</li>
+      <li>Menu-bar only — stays invisible until you need it.</li>
     </ul>
+  </div>
+
+  <div class="section">
+    <h2>About</h2>
+    <div class="about-card">
+      <div class="about-app-name">Cloak — Screen Share Privacy</div>
+      <div class="about-version-row">
+        <span class="about-version">1.0</span>
+        <span class="about-platform">macOS 14 Sonoma and later</span>
+      </div>
+      <p class="about-body">Cloak is a menu-bar app for macOS, built for people who share their screen regularly and want that to be a non-issue before every call. Buy it once. Payments go through Apple, so we never see your card details.</p>
+      <div class="about-links">
+        <a href="mailto:support@vedynapps.com">support@vedynapps.com</a>
+        <a href="/privacy/#cloak">Privacy Policy ↗</a>
+        <a href="#">App Store ↗</a>
+      </div>
+    </div>
   </div>
 
   <div class="section">
@@ -175,23 +268,31 @@
     <div class="faq-list">
       <details class="faq-item">
         <summary>How do I hide my desktop icons on a Mac before screen sharing?</summary>
-        <p class="faq-answer">Press one hotkey. Cloak hides every desktop icon instantly and brings them all back when you press it again — no Terminal commands, no dragging files into folders.</p>
+        <p class="faq-answer">Press one hotkey. Cloak hides every desktop icon instantly and brings them all back when you press it again. No Terminal commands, no dragging files into folders.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is the Go Live panel?</summary>
+        <p class="faq-answer">Go Live is a pre-share checklist. Open it before you share and it shows you every running app and your notification status, so you can see what your audience would actually see. Anything worth hiding shows up there first.</p>
       </details>
       <details class="faq-item">
         <summary>Can Cloak silence notifications during a screen share?</summary>
-        <p class="faq-answer">Yes. Cloak turns on Do Not Disturb through a bundled macOS Shortcut you install once, so Slack messages and calendar alerts stay quiet for the whole presentation.</p>
+        <p class="faq-answer">Yes. Cloak silences notifications through a bundled macOS Shortcut you install once during setup, so Slack messages and calendar alerts don't pop up mid-presentation.</p>
       </details>
       <details class="faq-item">
         <summary>Does Cloak activate automatically when I join a Zoom or Teams call?</summary>
-        <p class="faq-answer">With the Lifetime Unlock, Cloak watches for Zoom, Teams, Meet, Loom, or OBS coming to the foreground. It fires your chosen profile automatically and restores everything when the app closes.</p>
+        <p class="faq-answer">With the Lifetime Unlock, Cloak watches for Zoom, Teams, Meet, Loom, or OBS coming to the foreground and activates automatically. Everything restores when the app closes.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What is Tab Guard?</summary>
+        <p class="faq-answer">Tab Guard is a Pro feature. Before you share, pick which Safari tabs you want visible. Cloak moves them to a clean window and hides everything else. Your other open tabs don't show up.</p>
       </details>
       <details class="faq-item">
         <summary>What happens if Cloak crashes while my desktop is hidden?</summary>
-        <p class="faq-answer">Cloak snapshots what it hid the moment it activates. On relaunch it finds and restores everything, so a force quit never leaves you with a permanently hidden desktop.</p>
+        <p class="faq-answer">Cloak writes down what it hid when it activates. Force-quit mid-session and everything restores on the next launch.</p>
       </details>
       <details class="faq-item">
         <summary>Is it a subscription?</summary>
-        <p class="faq-answer">No. The basics are free forever, and the Lifetime Unlock is a one-time $6.99 purchase. No accounts, no renewals.</p>
+        <p class="faq-answer">No. The basics are free, and the Lifetime Unlock is a one-time $6.99 purchase. No accounts, no renewals.</p>
       </details>
     </div>
   </div>

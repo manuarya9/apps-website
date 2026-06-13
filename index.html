@@ -92,63 +92,135 @@
   </div>
 </section>
 
+<style>
+  .platform-group {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .platform-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .platform-name {
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+  }
+  .platform-badge {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted-2);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 14px;
+  }
+  .platform-ios-group {
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+    padding-bottom: 120px;
+  }
+  .platform-macos-group {
+    padding-bottom: 0;
+  }
+  .platform-ios-group .app-card {
+    opacity: 0.55;
+    pointer-events: none;
+    cursor: default;
+  }
+  @media (max-width: 640px) {
+    .platform-group { padding: 0 20px; }
+    .platform-ios-group { padding-bottom: 80px; }
+  }
+</style>
+
 <div class="section-header" id="apps">
   <h2>Apps</h2>
 </div>
 
-<div class="apps-grid">
+<div class="platform-group platform-macos-group">
+  <div class="platform-header">
+    <span class="platform-name">macOS</span>
+    <span class="platform-badge">Submitting to App Store</span>
+  </div>
+  <div class="platform-grid">
 
-  <a class="app-card" href="showpoint/">
-    <div class="app-icon">
-      <img src="assets/icons/showpoint.png" alt="ShowPoint icon" width="60" height="60" />
-    </div>
-    <h2>ShowPoint</h2>
-    <p>Your cursor is somewhere on screen. Your viewers just can't find it. ShowPoint adds a halo, click pulses, and spotlight on top of any recorder, with free Meeting and Live Demo presets.</p>
-    <div class="tag-row">
-      <span class="tag">macOS</span>
-      <span class="tag green">Free + $9.99 lifetime</span>
-      <span class="tag">Menu Bar</span>
-    </div>
-  </a>
+    <a class="app-card" href="cloak/">
+      <div class="app-icon">
+        <img src="assets/icons/cloak.png" alt="Cloak icon" width="60" height="60" />
+      </div>
+      <h2>Cloak</h2>
+      <p>Before you hit Share Screen, there's always something open you didn't mean to show. One keystroke hides desktop icons, silences notifications, clears the wallpaper, and covers app windows — or it fires automatically when a conference app opens.</p>
+      <div class="tag-row">
+        <span class="tag">macOS</span>
+        <span class="tag green">Free + $6.99 lifetime</span>
+        <span class="tag purple">Menu Bar</span>
+      </div>
+    </a>
 
-  <a class="app-card" href="lumasip/">
-    <div class="app-icon">
-      <img src="assets/icons/lumasip.png" alt="LumaSip icon" width="60" height="60" />
-    </div>
-    <h2>LumaSip</h2>
-    <p>A water tracker that doesn't need to know who you are. Log intake, set reminders, sync with Apple Health — all on your iPhone, no account required.</p>
-    <div class="tag-row">
-      <span class="tag blue">iOS</span>
-      <span class="tag green">Free</span>
-      <span class="tag blue">HealthKit</span>
-    </div>
-  </a>
+    <a class="app-card" href="showpoint/">
+      <div class="app-icon">
+        <img src="assets/icons/showpoint.png" alt="ShowPoint icon" width="60" height="60" />
+      </div>
+      <h2>ShowPoint</h2>
+      <p>Your cursor is somewhere on screen. Your viewers just can't find it. ShowPoint adds a halo, click pulses, and spotlight on top of any recorder, with free Meeting and Live Demo presets.</p>
+      <div class="tag-row">
+        <span class="tag">macOS</span>
+        <span class="tag green">Free + $9.99 lifetime</span>
+        <span class="tag">Menu Bar</span>
+      </div>
+    </a>
 
-  <a class="app-card" href="cyvelle/">
-    <div class="app-icon">
-      <img src="assets/icons/cyvelle.png" alt="Cyvelle icon" width="60" height="60" />
-    </div>
-    <h2>Cyvelle</h2>
-    <p>Cycle tracking that stays on your device. Log symptoms, see predictions, understand your patterns — without your health data ending up on someone's server.</p>
-    <div class="tag-row">
-      <span class="tag pink">iOS</span>
-      <span class="tag">Coming Soon</span>
-    </div>
-  </a>
+  </div>
+</div>
 
-  <a class="app-card" href="cloak/">
-    <div class="app-icon">
-      <img src="assets/icons/cloak.png" alt="Cloak icon" width="60" height="60" />
-    </div>
-    <h2>Cloak</h2>
-    <p>There's always something on your screen you weren't ready to show. Cloak hides desktop icons, silences notifications, and clears the wallpaper in one keystroke, or automatically when a conference app opens.</p>
-    <div class="tag-row">
-      <span class="tag">macOS</span>
-      <span class="tag green">Free + $6.99 lifetime</span>
-      <span class="tag purple">Menu Bar</span>
-    </div>
-  </a>
+<div class="platform-group platform-ios-group">
+  <div class="platform-header">
+    <span class="platform-name">iOS</span>
+    <span class="platform-badge">Coming Soon</span>
+  </div>
+  <div class="platform-grid">
 
+    <a class="app-card" href="lumasip/">
+      <div class="app-icon">
+        <img src="assets/icons/lumasip.png" alt="LumaSip icon" width="60" height="60" />
+      </div>
+      <h2>LumaSip</h2>
+      <p>A water tracker that doesn't need to know who you are. Log intake, set reminders, sync with Apple Health — all on your iPhone, no account required.</p>
+      <div class="tag-row">
+        <span class="tag blue">iOS</span>
+        <span class="tag">Coming Soon</span>
+        <span class="tag blue">HealthKit</span>
+      </div>
+    </a>
+
+    <a class="app-card" href="cyvelle/">
+      <div class="app-icon">
+        <img src="assets/icons/cyvelle.png" alt="Cyvelle icon" width="60" height="60" />
+      </div>
+      <h2>Cyvelle</h2>
+      <p>Cycle tracking that stays on your device. Log symptoms, see predictions, understand your patterns — without your health data ending up on someone's server.</p>
+      <div class="tag-row">
+        <span class="tag pink">iOS</span>
+        <span class="tag">Coming Soon</span>
+      </div>
+    </a>
+
+  </div>
 </div>
 
 <footer>
