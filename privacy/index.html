@@ -175,11 +175,30 @@
   <a class="back-link" href="/">← All apps</a>
 
   <h1>Privacy</h1>
-  <span class="updated">Last updated — May 2026</span>
+  <span class="updated">Last updated — June 2026</span>
 
   <div class="privacy-lead">
-    <p>Your data stays on your device. We don't run servers that receive it — so there's nothing to breach, sell, or subpoena. All three apps work this way.</p>
-    <p>In practice: no accounts, no analytics, no crash reporters, no third-party SDKs phoning home. Purchases go through Apple directly. We never see your payment details.</p>
+    <p>Your data stays on your device. We don't run servers that receive it, so there's nothing to breach, sell, or subpoena. All four apps work this way.</p>
+    <p>No accounts, no analytics, no crash reporters, no third-party SDKs phoning home. Purchases go through Apple directly. We never see your payment details.</p>
+  </div>
+
+  <div class="privacy-section" id="cloak">
+    <span class="privacy-section-label">macOS</span>
+    <h2>Cloak</h2>
+    <p>Cloak watches which app is frontmost using <code>NSWorkspace</code>. That's the entire auto-trigger mechanism. No screen content is read, no keystrokes are captured, and nothing related to what's on your screen is processed or stored.</p>
+    <p>Notification silence works through a bundled macOS Shortcut you install once during setup. Cloak invokes it by name. The Shortcut itself is Apple's infrastructure, running locally on your Mac.</p>
+    <p>For the Pro Tab Guard feature, Cloak uses Safari Apple Events to move Safari windows. It does not read, modify, or transmit tab URLs, titles, or any tab content. It only moves windows.</p>
+    <ul class="privacy-fact-list">
+      <li>No screen-recording permission. Icons and wallpaper hide through system APIs, not a screen capture.</li>
+      <li>No Accessibility permission. Window cover only touches Cloak's own windows — no cross-app access.</li>
+      <li><code>NSWorkspace</code> is used to observe which app is frontmost. Screen content is never read.</li>
+      <li>Notification silence via a bundled macOS Shortcut (user-installed, one time). No private API.</li>
+      <li>Safari Apple Events (Pro, Tab Guard): window movement only. No tab content accessed.</li>
+      <li>Settings stored in <code>UserDefaults</code> on your Mac. Never transmitted.</li>
+      <li>License state stored in Keychain, Apple's encrypted credential store. Local only.</li>
+      <li>Activation snapshot (what Cloak hid) stored in Application Support during active sessions. Cleared on restore or relaunch.</li>
+      <li>No analytics, no telemetry, no external server. StoreKit purchases handled entirely by Apple.</li>
+    </ul>
   </div>
 
   <div class="privacy-section" id="showpoint">
