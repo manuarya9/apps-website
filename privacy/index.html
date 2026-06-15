@@ -204,13 +204,14 @@
   <div class="privacy-section" id="showpoint">
     <span class="privacy-section-label">macOS</span>
     <h2>ShowPoint</h2>
-    <p>ShowPoint watches your mouse position and clicks using macOS's standard event monitoring API — that's how it knows where to draw the halo and when to fire a pulse. That data is processed and discarded in real time. It never leaves your Mac.</p>
+    <p>ShowPoint watches your mouse position and clicks using macOS's standard event monitoring API — that's how it knows where to draw the halo and when to fire a pulse. That data is used only to position the overlay — it never leaves your Mac.</p>
     <p>Your license state (whether you've bought Lifetime Unlock or used the 10-minute trial) is stored in your Mac's Keychain, Apple's built-in encrypted credential store. That's local only. We have no servers to sync it to.</p>
     <ul class="privacy-fact-list">
-      <li>No screen recording permission — ShowPoint is a transparent overlay, not a recorder</li>
-      <li>Mouse position and click events are read-only and discarded immediately after rendering</li>
+      <li>No screen-recording permission — ShowPoint is a transparent overlay, not a recorder</li>
+      <li>Mouse position and clicks are processed locally only — used to position the overlay, then discarded</li>
+      <li>Modifier-key HUD watches ⌘ ⇧ ⌥ ⌃ state only — not which keys you press or what you type</li>
       <li>License state in Keychain — on your Mac, stays on your Mac</li>
-      <li>StoreKit purchases handled entirely by Apple</li>
+      <li>Purchases go through Apple — we never see your payment details</li>
     </ul>
   </div>
 
