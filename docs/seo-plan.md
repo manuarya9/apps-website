@@ -1,66 +1,140 @@
 # Vedyn Apps — SEO Action Plan
 
-Goal: rank at the top of search for the jobs our apps do ("highlight cursor mac",
+Goal: rank at the top of search for the *jobs* our apps do ("highlight cursor mac",
 "hide desktop icons before screen sharing"), before and independent of App Store ranking.
-Context: per `cloak/docs/strategy_review_2026-06.md`, distribution — not product — is the
-current risk; CleanSlate is out-marketing Cloak on content. This plan closes that gap.
+Three funnels: **App Store search** (where buyers are), **web search** (where research
+starts), **launch/community channels** (the initial spike + the backlinks that feed the
+first two).
 
-## Done in this branch (technical SEO baseline)
+**Status legend:** `[x]` done · `[~]` partial / blocked on launch · `[ ]` not started
 
-- [x] Canonical URLs on every page
-- [x] Open Graph + Twitter Card meta on every page
-- [x] JSON-LD: `Organization` + `WebSite` (home), `SoftwareApplication` (ShowPoint, Cloak, LumaSip), `FAQPage` (ShowPoint, Cloak)
-- [x] `robots.txt` (excludes `/docs/` and legacy `/periodtracker/`) + `sitemap.xml`
-- [x] Keyword-targeted `<title>`/meta descriptions on ShowPoint and Cloak pages
-- [x] On-page FAQ sections targeting long-tail queries on ShowPoint and Cloak pages
+---
 
-## Next actions (prioritized)
+## Site-wide foundational (do first — until this is done we're invisible and blind)
 
-### P0 — the moment App Store listings go live
-1. Replace `href="#"` CTA placeholders on `/showpoint/` and `/cloak/` with real
-   `https://apps.apple.com/app/id…` links. Search engines treat dead CTAs as low quality;
-   users bounce.
-2. Add each app's App Store URL to its `SoftwareApplication` JSON-LD as `"installUrl"`
-   and `"sameAs"`.
-3. Register the site in Google Search Console + Bing Webmaster Tools; submit `sitemap.xml`.
+| Task | Status | Notes |
+|------|--------|-------|
+| `robots.txt` (excludes `/docs/`, legacy `/periodtracker/`) | [x] | Live |
+| `sitemap.xml` (home + all live app pages) | [x] | Live; re-submit after adding new content pages |
+| Canonical URLs on every page | [x] | All pages |
+| Open Graph + Twitter Card meta on every page | [x] | See per-app for `summary` vs `summary_large_image` |
+| **Google Search Console** — verify domain + submit sitemap | [ ] | Runbook below. Needs a token from you. |
+| **Bing Webmaster Tools** — verify + submit sitemap | [ ] | Easiest path: import from GSC once GSC is verified |
+| **Cloudflare Web Analytics** — privacy-friendly traffic + query data | [ ] | Site is on Cloudflare Pages → enable automatic mode (zero code) |
 
-### P1 — within 2 weeks of launch
-4. **Proper OG images** (1200×630) per app — current fallback is the 1024 brand mark.
-   Render from app screenshots (`cursoroverlay/docs/app-store-screenshots/` already has
-   1280×800 assets to crop). Social shares with real product imagery convert far better.
-5. **Comparison pages** (the highest-intent commercial keywords):
-   - `/showpoint/vs/` — ShowPoint vs Mouzz vs Cursor Pro vs Presentify (honest feature/price
-     table; we win on lifetime pricing, no screen-recording permission, polish)
-   - `/cloak/vs/` — Cloak vs Stealthly vs CleanSlate vs DeskMat (we win on $6.99 one-time
-     vs $12.99/subscription, crash-safe restore, zero-permission free tier)
-6. **How-to articles** (informational keywords that funnel to the product):
-   - "How to highlight your cursor in a screen recording on Mac" → ShowPoint
-   - "How to show mouse clicks on screen on macOS" → ShowPoint
-   - "How to hide desktop icons on Mac (one keystroke)" → Cloak
-   - "How to silence notifications while screen sharing on Mac" → Cloak
-   Each: ~800–1200 words, answer the question fully (including the manual/Terminal way),
-   then position the app as the one-keystroke path. Use `HowTo` or `Article` JSON-LD.
+### Runbook — Google Search Console
+1. https://search.google.com/search-console → **Add property** → choose **Domain** (`vedynapps.com`).
+2. Google gives a **DNS TXT** record. Add it in the Cloudflare dashboard (DNS → Records → Add TXT). Domain property is preferred — it covers `www`, subdomains, and `https`/`http` in one shot.
+3. After it verifies: **Sitemaps** → submit `https://vedynapps.com/sitemap.xml`.
+4. *Alternative if you'd rather not touch DNS:* choose **URL prefix** (`https://vedynapps.com/`), pick the **HTML tag** method, and paste the `<meta name="google-site-verification" ...>` token here — I'll drop it into the homepage `<head>` and you click Verify.
 
-### P2 — ongoing
-7. Launch posts: Product Hunt, Hacker News (Show HN), relevant subreddits
-   (r/macapps, r/MacOS), MacMenuBar.com, AlternativeTo listings — these are the backlinks
-   that move domain authority for indie Mac apps.
-8. Rotate App Store promotional text with each release (see `app-store-optimization` skill);
-   mirror seasonal messaging on the web pages.
-9. Cross-link sibling apps ("Also from Vedyn: Cloak — clean your desktop before you share")
-   on each app page footer.
-10. Watch Search Console queries monthly; add FAQ entries for queries we rank #5–#15 on.
+### Runbook — Bing Webmaster Tools
+1. https://www.bing.com/webmasters → **Import** → connect Google Search Console (one click, pulls verification + sitemap automatically). Done.
+2. *Or* verify independently and submit `https://vedynapps.com/sitemap.xml`.
 
-## Keyword targets
+### Runbook — Cloudflare Web Analytics
+1. Cloudflare dashboard → **Analytics & Logs → Web Analytics**.
+2. Because the site is served by **Cloudflare Pages**, enable **automatic** analytics for the `vedynapps` Pages project — no code, no snippet to maintain, no cookie banner needed.
+3. *Only if you want the beacon in-repo* (e.g. for portability off Cloudflare later): switch to **manual**, copy the `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"..."}'></script>` snippet, paste the token here, and I'll add it to every page `<head>` (and to `brand/head-snippet.html` so new pages inherit it).
 
-| Page | Primary | Secondary |
-|------|---------|-----------|
-| /showpoint/ | cursor highlighter mac | highlight mouse clicks screen recording, spotlight cursor presentation mac, show clicks in zoom |
-| /cloak/ | hide desktop icons mac | clean desktop screen sharing, mute notifications screen share mac, presentation mode mac |
-| Home | vedyn apps | privacy-first mac apps, one-time purchase mac utilities |
+---
+
+## Per-app plans
+
+### ShowPoint — `/showpoint/` (macOS, shipped)
+Cursor halo / click pulses / spotlight for screen recording. **Technical SEO is complete.**
+
+- [x] Keyword `<title>` + meta description
+- [x] Canonical, OG, **Twitter `summary_large_image`**
+- [x] **Dedicated 1200×630 OG image** (`/showpoint/og.png`, generated by `tools/make_og.py`)
+- [x] `SoftwareApplication` JSON-LD with `downloadUrl` (App Store) + `FAQPage` JSON-LD
+- [x] On-page FAQ targeting long-tail queries
+- [x] CTAs wired to the App Store listing; price corrected to **$4.99**
+- [ ] **Comparison page** `/showpoint/vs/` — ShowPoint vs Mouzz vs Mouse Pro vs Presentify (honest feature/price table; we win on lifetime price, no screen-recording permission, polish)
+- [ ] **How-to articles** → "Highlight your cursor in a screen recording on Mac", "Show mouse clicks on screen on macOS", "Make your cursor visible in Loom/Zoom/QuickTime" (`HowTo`/`Article` JSON-LD)
+- [ ] Add `aggregateRating` to JSON-LD once the app has App Store reviews
+
+**Keywords:** primary `cursor highlighter mac` · secondary `highlight mouse clicks screen recording`, `spotlight cursor presentation mac`, `show clicks in zoom`, `make cursor visible loom`
+
+### Cloak — `/cloak/` (macOS, pre-launch)
+One-keystroke screen-share privacy. SEO structure is in place; conversion bits unblock at launch.
+
+- [x] Keyword `<title>` + meta description
+- [x] Canonical, OG, Twitter (`summary`)
+- [x] `SoftwareApplication` + `FAQPage` JSON-LD
+- [x] On-page FAQ
+- [~] **CTAs are `href="#"` (3)** — wire to the App Store listing + add `downloadUrl` the moment it ships
+- [ ] **Dedicated 1200×630 OG image** (reuse `tools/make_og.py`, swap icon/tagline)
+- [ ] Upgrade Twitter card to `summary_large_image` once the OG image exists
+- [ ] **Comparison page** `/cloak/vs/` — Cloak vs Stealthly vs CleanSlate (we win on one-time price vs subscription, crash-safe restore, zero-permission free tier)
+- [ ] **How-to articles** → "Hide desktop icons on Mac (one keystroke)", "Silence notifications while screen sharing on Mac"
+
+**Keywords:** primary `hide desktop icons mac` · secondary `clean desktop screen sharing`, `mute notifications screen share mac`, `presentation mode mac`
+
+### LumaSip — `/lumasip/` (iOS)
+Privacy-friendly water tracker.
+
+- [x] Canonical, OG, Twitter (`summary`), `SoftwareApplication` JSON-LD
+- [~] **1 `href="#"` CTA** — wire to the App Store listing + add `downloadUrl`
+- [ ] Dedicated 1200×630 OG image
+- [ ] `FAQPage` JSON-LD + on-page FAQ ("how much water should I drink", privacy/no-account angle)
+
+**Keywords:** primary `water tracker app iphone` · secondary `privacy water reminder ios`, `no-account hydration tracker`
+
+### Cyvelle — `/cyvelle/` (iOS)
+Private, on-device cycle tracker.
+
+- [x] Canonical, OG, Twitter (`summary`)
+- [ ] **`SoftwareApplication` JSON-LD** (missing — add; gate `offers`/`installUrl` on launch)
+- [ ] Dedicated 1200×630 OG image
+- [ ] `FAQPage` JSON-LD + on-page FAQ (lead with on-device privacy — the category's #1 search concern)
+
+**Keywords:** primary `private period tracker iphone` · secondary `on-device cycle tracker`, `period tracker no data collection`
+
+### SPAM — `/spam/`
+Security, Privacy and Austerity Measures (non-app page).
+
+- [x] Canonical, OG, Twitter (`summary`)
+- [ ] Decide whether this should be indexed at all; if not, add `<meta name="robots" content="noindex">` (it's in the sitemap today)
+
+### Home — `/`
+- [x] Canonical, OG, `Organization` + `WebSite` JSON-LD
+- [x] App cards linking to each product (internal linking)
+- [ ] Cross-link siblings in each app's footer ("Also from Vedyn: …") to spread link equity
+
+> `/periodtracker/` is legacy and `Disallow`-ed in `robots.txt` — intentionally excluded.
+
+---
+
+## Cross-cutting content plan (the biggest organic lever)
+
+**Comparison pages** capture the highest-intent commercial queries; **how-to articles** capture
+informational queries that funnel to the product. Pattern for each how-to: ~800–1200 words,
+fully answer the question (including the free/manual/Terminal way), *then* position the app as
+the one-keystroke path. Add `HowTo` or `Article` JSON-LD, and add every new URL to `sitemap.xml`.
+
+Source material already exists: `cursoroverlay/docs/competitor_analysis_2026-05.md` and
+`cloak/docs/strategy_review_2026-06.md` have the competitor/feature/price research to write
+the comparison tables honestly.
+
+## Off-site / launch (backlinks + spike)
+
+- Product Hunt launch · Hacker News "Show HN" · subreddits (r/macapps, r/MacOS, r/edtech, r/Zoom)
+- Directory listings: AlternativeTo (list as alternative to Mouseposé/Presentify/CleanShot),
+  MacMenuBar.com, Slant, MacUpdate — durable backlinks that also rank themselves
+- Roundup outreach: authors of "best Mac tools for teachers/screencasters" lists
+
+## App Store Optimization (parallel funnel — often bigger than web for us)
+
+- Tune title/subtitle + the 100-char keyword field per `competitor_analysis`
+- First 3 description lines + screenshots do the selling
+- Nudge ratings in-app after the user has clearly gotten value (ratings velocity moves rank most)
+- Rotate promotional text each release; mirror seasonal messaging on the web pages
 
 ## Measurement
 
-- Google Search Console: impressions/clicks per query, weekly after launch.
-- Target: page-1 ranking for both primary keywords within 90 days of launch
-  (low-competition long-tail; achievable with the comparison + how-to content above).
+- Google Search Console: impressions/clicks per query, weekly after launch
+- Cloudflare Web Analytics: top pages, referrers, conversion to App Store CTA clicks
+- Target: page-1 for each app's primary keyword within 90 days of launch (low-competition
+  long-tail; achievable with the comparison + how-to content above)
+- Monthly: add FAQ entries for queries we rank #5–#15 on (cheap rank gains)
