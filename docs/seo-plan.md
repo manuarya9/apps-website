@@ -15,12 +15,12 @@ first two).
 | Task | Status | Notes |
 |------|--------|-------|
 | `robots.txt` (excludes `/docs/`, legacy `/periodtracker/`) | [x] | Live |
-| `sitemap.xml` (home + all live app pages) | [x] | Live; re-submit after adding new content pages |
+| `sitemap.xml` (home + all live app pages) | [x] | Live; includes `/showpoint/vs/`. Re-submit in GSC after adding new content pages |
 | Canonical URLs on every page | [x] | All pages |
 | Open Graph + Twitter Card meta on every page | [x] | See per-app for `summary` vs `summary_large_image` |
-| **Google Search Console** — verify domain + submit sitemap | [ ] | Runbook below. Needs a token from you. |
-| **Bing Webmaster Tools** — verify + submit sitemap | [ ] | Easiest path: import from GSC once GSC is verified |
-| **Cloudflare Web Analytics** — privacy-friendly traffic + query data | [ ] | Site is on Cloudflare Pages → enable automatic mode (zero code) |
+| **Google Search Console** — verify domain + submit sitemap | [x] | Domain auto-verified via Cloudflare; sitemap processed, 7 pages discovered (2026-06-22) |
+| **Bing Webmaster Tools** — verify + submit sitemap | [x] | Imported from GSC + sitemap submitted (2026-06-22) |
+| **Cloudflare Web Analytics** — privacy-friendly traffic + query data | [x] | Automatic mode enabled for the `vedynapps` Pages project (2026-06-22) |
 
 ### Runbook — Google Search Console
 1. https://search.google.com/search-console → **Add property** → choose **Domain** (`vedynapps.com`).
@@ -50,8 +50,8 @@ Cursor halo / click pulses / spotlight for screen recording. **Technical SEO is 
 - [x] `SoftwareApplication` JSON-LD with `downloadUrl` (App Store) + `FAQPage` JSON-LD
 - [x] On-page FAQ targeting long-tail queries
 - [x] CTAs wired to the App Store listing; price corrected to **$4.99**
-- [ ] **Comparison page** `/showpoint/vs/` — ShowPoint vs Mouzz vs Mouse Pro vs Presentify (honest feature/price table; we win on lifetime price, no screen-recording permission, polish)
-- [ ] **How-to articles** → "Highlight your cursor in a screen recording on Mac", "Show mouse clicks on screen on macOS", "Make your cursor visible in Loom/Zoom/QuickTime" (`HowTo`/`Article` JSON-LD)
+- [x] **Comparison page** `/showpoint/vs/` — ShowPoint vs Mouzz / Mouse Pro / Presentify (honest feature/price table + `Article`/`BreadcrumbList`/`FAQPage` JSON-LD; linked from `/showpoint/` and in the sitemap)
+- [ ] **How-to articles** → "Highlight your cursor in a screen recording on Mac", "Show mouse clicks on screen on macOS", "Make your cursor visible in Loom/Zoom/QuickTime" (`HowTo`/`Article` JSON-LD) — *next agent*
 - [ ] Add `aggregateRating` to JSON-LD once the app has App Store reviews
 
 **Keywords:** primary `cursor highlighter mac` · secondary `highlight mouse clicks screen recording`, `spotlight cursor presentation mac`, `show clicks in zoom`, `make cursor visible loom`
@@ -138,3 +138,29 @@ the comparison tables honestly.
 - Target: page-1 for each app's primary keyword within 90 days of launch (low-competition
   long-tail; achievable with the comparison + how-to content above)
 - Monthly: add FAQ entries for queries we rank #5–#15 on (cheap rank gains)
+
+---
+
+## Handoff — remaining for the next agent
+
+Foundational SEO and the first comparison page are done. The next, highest-leverage work is
+**content** (needs no account access):
+
+1. **How-to articles for ShowPoint** (start here — highest volume):
+   - "How to highlight your cursor in a screen recording on Mac"
+   - "How to show mouse clicks on screen on macOS"
+   - "How to make your cursor visible in Loom / Zoom / QuickTime"
+   - Pattern: ~800–1200 words; fully answer the question (incl. the free/built-in way) then
+     position ShowPoint as the one-keystroke path. Add `HowTo`/`Article` JSON-LD; add each
+     URL to `sitemap.xml`; link from `/showpoint/` and cross-link the `/showpoint/vs/` page.
+   - Reuse the page scaffold from `showpoint/vs/index.html` (nav, footer, scoped `<style>`,
+     absolute `/assets/` paths) and the OG image at `/showpoint/og.png`.
+2. **Cloak comparison + how-to** (`/cloak/vs/`, hide-icons / mute-notifications guides) — wait
+   until Cloak's App Store CTAs are live, or ship content now and wire CTAs at launch.
+3. **Per-app gaps** from the sections above: Cloak/LumaSip dead CTAs + OG images (launch-gated),
+   Cyvelle `SoftwareApplication` JSON-LD, SPAM index decision.
+4. After publishing any new page: **re-submit `sitemap.xml` in Google Search Console** and
+   request indexing for the new URLs.
+
+Image tooling: `tools/make_og.py` (Pillow) generates 1200×630 OG cards — duplicate and swap the
+icon/tagline for Cloak/LumaSip/Cyvelle.
